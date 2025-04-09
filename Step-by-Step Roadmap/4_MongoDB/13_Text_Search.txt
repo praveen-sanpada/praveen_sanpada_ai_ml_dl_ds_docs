@@ -1,0 +1,9 @@
+Step 7: Text Search (IMP for Advanced Queries)
+
+// Create Text Index
+db.employees.createIndex({ name: "text", department: "text" });
+
+// Search documents using text index
+db.employees.find({ $text: { $search: "AI" } });
+
+

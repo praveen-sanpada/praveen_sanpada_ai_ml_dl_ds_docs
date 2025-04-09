@@ -1,0 +1,7 @@
+3. RIGHT JOIN
+Returns all records from right table and matched from left table.
+
+SELECT Employees.EmployeeID, Employees.FirstName, Departments.DepartmentName
+FROM Employees
+RIGHT JOIN Departments
+ON Employees.DepartmentID = Departments.DepartmentID;

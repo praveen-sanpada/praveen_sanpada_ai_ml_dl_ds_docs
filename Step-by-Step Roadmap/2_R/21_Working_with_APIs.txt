@@ -1,0 +1,8 @@
+12. Working with APIs (JSON Data)
+
+library(httr)
+library(jsonlite)
+
+response <- GET("https://api.example.com/data")
+data_json <- content(response, "text")
+data <- fromJSON(data_json)

@@ -1,0 +1,15 @@
+List (ordered, mutable)
+
+# List Example
+my_list = [10, "AI", 3.14, True]
+
+# Accessing elements
+print(my_list[1])  # Output: AI
+
+# Adding element
+my_list.append("New Item")
+
+# Removing element
+my_list.remove(10)
+
+print(my_list)  # Output: ['AI', 3.14, True, 'New Item']

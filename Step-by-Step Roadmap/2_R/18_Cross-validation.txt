@@ -1,0 +1,6 @@
+Cross-validation (IMP)
+
+# Training with CV
+set.seed(123)
+model_cv <- train(score ~ pass, data=df, method="lm", trControl=trainControl(method="cv", number=5))
+print(model_cv)

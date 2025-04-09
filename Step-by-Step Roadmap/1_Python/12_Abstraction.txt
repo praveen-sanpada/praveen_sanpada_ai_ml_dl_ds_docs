@@ -1,0 +1,16 @@
+Abstraction (Using Abstract Base Class) (IMP)
+
+from abc import ABC, abstractmethod
+
+# Abstract Base Class
+class AIModel(ABC):
+    @abstractmethod
+    def predict(self):
+        pass
+
+class MyModel(AIModel):
+    def predict(self):
+        return "Predictions done!"
+
+model = MyModel()
+print(model.predict())  # Output: Predictions done!

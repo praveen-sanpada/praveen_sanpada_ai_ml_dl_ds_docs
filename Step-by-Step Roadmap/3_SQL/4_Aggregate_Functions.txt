@@ -1,0 +1,18 @@
+Aggregate Functions (COUNT, SUM, AVG, MAX, MIN) (IMP)
+
+-- Counting total employees
+SELECT COUNT(*) AS TotalEmployees FROM Employees;
+
+-- Sum of Salaries
+SELECT SUM(Salary) AS TotalSalary FROM Employees;
+
+-- Average Salary
+SELECT AVG(Salary) AS AvgSalary FROM Employees;
+
+-- Maximum Salary
+SELECT MAX(Salary) AS HighestSalary FROM Employees;
+
+-- Minimum Salary
+SELECT MIN(Salary) AS LowestSalary FROM Employees;
+
+

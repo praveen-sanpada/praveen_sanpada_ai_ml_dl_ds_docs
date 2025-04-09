@@ -1,0 +1,6 @@
+INTERSECT (Common Results)
+
+SELECT EmployeeID FROM Employees_US
+INTERSECT
+SELECT EmployeeID FROM Employees_UK;
+

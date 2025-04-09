@@ -1,0 +1,12 @@
+Step 3: Sorting, Limiting, Skipping (IMP)
+
+// Sorting
+db.employees.find().sort({ salary: -1 }); // Descending
+
+// Limiting results
+db.employees.find().limit(5);
+
+// Skipping results (pagination)
+db.employees.find().skip(10).limit(5);
+
+

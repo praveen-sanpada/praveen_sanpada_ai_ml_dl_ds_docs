@@ -1,0 +1,11 @@
+2. Control Structures (IMP)
+if-else
+
+score <- 85
+if(score > 90){
+  print("Excellent")
+} else if(score >= 75){
+  print("Good")
+} else {
+  print("Needs Improvement")
+}

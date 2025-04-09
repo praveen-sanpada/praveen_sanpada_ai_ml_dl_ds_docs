@@ -1,0 +1,10 @@
+K-Means Clustering (IMP for DS)
+
+
+# Clustering
+set.seed(123)
+clusters <- kmeans(df$score, centers=2)
+
+# Results
+clusters$cluster
+

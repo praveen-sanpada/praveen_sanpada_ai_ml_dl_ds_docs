@@ -1,0 +1,21 @@
+Step 5: Joins (MongoDB $lookup) (IMP)
+Example Collections:
+employees: {_id, name, department_id}
+departments: {_id, department_name}
+
+
+// MongoDB Join Example ($lookup)
+db.employees.aggregate([
+  {
+    $lookup: {
+      from: "departments",
+      localField: "department_id",
+      foreignField: "_id",
+      as: "department_details"
+    }
+  },
+  { $unwind: "$department_details" },
+  { $project: { name: 1, "department_details.department_name": 1 } }
+]);
+
+

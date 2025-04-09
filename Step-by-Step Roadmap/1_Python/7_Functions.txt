@@ -1,0 +1,8 @@
+Functions (IMP)
+
+# Simple Function
+def greet(name):
+    return f"Hello, {name}!"
+
+message = greet("ChatGPT")
+print(message)  # Output: Hello, ChatGPT!

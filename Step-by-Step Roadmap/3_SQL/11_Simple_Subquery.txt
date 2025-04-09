@@ -1,0 +1,9 @@
+Subqueries (Nested Queries) (IMP)
+
+Simple Subquery
+
+-- Employees earning above average salary
+SELECT EmployeeID, FirstName, Salary FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+
+

@@ -1,0 +1,15 @@
+Step 8: Update Operations (IMP Advanced)
+
+// Array field update
+db.employees.updateOne(
+  { name: "Jane Smith" },
+  { $push: { skills: { $each: ["Python", "MongoDB"] } } }
+);
+
+// Remove element from array
+db.employees.updateOne(
+  { name: "Jane Smith" },
+  { $pull: { skills: "Python" } }
+);
+
+

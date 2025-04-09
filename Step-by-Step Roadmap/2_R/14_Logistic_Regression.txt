@@ -1,0 +1,11 @@
+Logistic Regression (IMP)
+
+# Logistic Regression Model
+df$pass <- as.factor(df$pass)
+log_model <- glm(pass ~ score, data=df, family="binomial")
+summary(log_model)
+
+# Predict probability
+predict(log_model, df, type="response")
+
+

@@ -1,0 +1,8 @@
+SET Operations
+
+UNION (Combine Results)
+
+-- Combine distinct results from two SELECT queries
+SELECT EmployeeID FROM Employees_US
+UNION
+SELECT EmployeeID FROM Employees_UK;

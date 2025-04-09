@@ -1,0 +1,10 @@
+6. Exploratory Data Analysis & Visualization (IMP for DS/ML)
+Using ggplot2
+
+
+library(ggplot2)
+
+# Basic Plot
+ggplot(df, aes(x=name, y=score)) +
+  geom_bar(stat="identity", fill="skyblue") +
+  ggtitle("Scores by Name")

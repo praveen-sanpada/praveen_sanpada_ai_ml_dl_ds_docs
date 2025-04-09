@@ -1,0 +1,10 @@
+Tuple (ordered, immutable)
+
+# Tuple Example
+my_tuple = ("AI", 2024, False)
+
+# Accessing elements
+print(my_tuple[0])  # Output: AI
+
+# Cannot modify (immutable)
+# my_tuple[0] = "ML"  # Raises TypeError

@@ -1,0 +1,10 @@
+Reading (Find) Documents
+
+// Find all documents
+db.employees.find();
+
+// Find with conditions
+db.employees.find({ department: "AI" });
+
+// Find with projection (specific fields)
+db.employees.find({ department: "AI" }, { name: 1, salary: 1, _id: 0 });

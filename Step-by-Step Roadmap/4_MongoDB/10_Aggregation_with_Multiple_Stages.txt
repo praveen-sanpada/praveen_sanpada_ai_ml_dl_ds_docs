@@ -1,0 +1,11 @@
+Aggregation with Multiple Stages
+
+// Multi-stage aggregation with project and limit
+db.employees.aggregate([
+  { $match: { department: "AI" } },
+  { $project: { name: 1, salary: 1, _id: 0 } },
+  { $sort: { salary: -1 } },
+  { $limit: 3 }
+]);
+
+

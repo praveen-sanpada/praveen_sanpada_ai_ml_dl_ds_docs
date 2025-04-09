@@ -1,0 +1,22 @@
+Dictionary (key-value pairs, mutable)
+
+# Dictionary Example
+my_dict = {
+    "name": "ChatGPT",
+    "type": "AI",
+    "year": 2024
+}
+
+# Accessing elements
+print(my_dict["name"])  # Output: ChatGPT
+
+# Adding/Updating element
+my_dict["version"] = "GPT-4"
+
+# Removing element
+del my_dict["year"]
+
+print(my_dict)  
+# Output: {'name': 'ChatGPT', 'type': 'AI', 'version': 'GPT-4'}
+
+

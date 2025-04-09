@@ -1,0 +1,9 @@
+Correlated Subquery (IMP)
+
+-- Employees with salary greater than department average
+SELECT EmployeeID, FirstName, Salary, DepartmentID FROM Employees e
+WHERE Salary > (
+    SELECT AVG(Salary)
+    FROM Employees
+    WHERE DepartmentID = e.DepartmentID
+);

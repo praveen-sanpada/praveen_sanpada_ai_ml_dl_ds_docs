@@ -1,0 +1,19 @@
+MongoDB Queries (Basic to Advanced) with Examples
+
+Step 1: Basic MongoDB Commands (CRUD) (IMP)
+Creating (Insert) Documents
+
+// Insert single document
+db.employees.insertOne({
+  name: "John Doe",
+  department: "AI",
+  salary: 75000
+});
+
+// Insert multiple documents
+db.employees.insertMany([
+  { name: "Jane Smith", department: "ML", salary: 80000 },
+  { name: "Mike Johnson", department: "DS", salary: 65000 }
+]);
+
+

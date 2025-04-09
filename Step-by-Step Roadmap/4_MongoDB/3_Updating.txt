@@ -1,0 +1,13 @@
+Updating Documents
+
+// Update single document
+db.employees.updateOne(
+  { name: "John Doe" },
+  { $set: { salary: 78000 } }
+);
+
+// Update multiple documents
+db.employees.updateMany(
+  { department: "ML" },
+  { $inc: { salary: 5000 } }
+);

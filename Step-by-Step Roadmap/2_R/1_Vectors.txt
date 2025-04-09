@@ -1,0 +1,18 @@
+Step 1: R Programming Fundamentals (IMP for ML/DS)
+
+1. Basic Data Types & Structures
+
+Vectors (IMP)
+
+# Numeric Vector
+num_vec <- c(1, 2, 3, 4, 5)
+
+# Character Vector
+char_vec <- c("AI", "ML", "DS")
+
+# Logical Vector
+log_vec <- c(TRUE, FALSE, TRUE)
+
+# Vector operations
+mean(num_vec)  # Mean
+sum(num_vec)   # Sum

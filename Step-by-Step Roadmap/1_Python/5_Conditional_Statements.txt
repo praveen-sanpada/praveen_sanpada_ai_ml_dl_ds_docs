@@ -1,0 +1,12 @@
+Conditional Statements (if-elif-else)
+
+score = 85
+
+if score >= 90:
+    print("Excellent")
+elif score >= 75:
+    print("Very Good")
+else:
+    print("Good")
+
+# Output: Very Good

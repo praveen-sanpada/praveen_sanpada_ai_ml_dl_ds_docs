@@ -1,0 +1,7 @@
+Handling Missing Values (IMP)
+
+# Checking for missing values
+sum(is.na(df))
+
+# Remove rows with missing values
+clean_df <- na.omit(df)

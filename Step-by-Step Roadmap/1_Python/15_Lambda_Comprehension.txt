@@ -1,0 +1,9 @@
+Lambda & Comprehension (IMP)
+
+# Lambda Function
+square = lambda x: x**2
+print(square(4))  # Output: 16
+
+# List Comprehension
+squares = [x**2 for x in range(5)]
+print(squares)  # Output: [0, 1, 4, 9, 16]

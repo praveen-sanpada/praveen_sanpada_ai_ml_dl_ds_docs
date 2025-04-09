@@ -1,0 +1,11 @@
+Advanced Concepts
+
+CASE Statements (IMP)
+
+SELECT EmployeeID, FirstName, Salary,
+CASE
+    WHEN Salary >= 70000 THEN 'High'
+    WHEN Salary BETWEEN 50000 AND 69999 THEN 'Medium'
+    ELSE 'Low'
+END AS SalaryCategory
+FROM Employees;

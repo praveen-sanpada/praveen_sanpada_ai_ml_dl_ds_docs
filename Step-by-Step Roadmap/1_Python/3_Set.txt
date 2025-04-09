@@ -1,0 +1,14 @@
+Set (unordered, unique elements)
+
+# Set Example
+my_set = {"AI", "ML", "AI"}
+
+print(my_set)  # Output: {'AI', 'ML'} (duplicates removed)
+
+# Adding element
+my_set.add("DL")
+
+# Removing element
+my_set.remove("ML")
+
+print(my_set)  # Output: {'AI', 'DL'}

@@ -1,0 +1,20 @@
+Important Object-Oriented Programming (OOP) Concepts
+
+Class & Objects (IMP)
+
+# Defining a Class
+class AIModel:
+    # Constructor (__init__)
+    def __init__(self, name, version):
+        self.name = name
+        self.version = version
+    
+    # Method
+    def details(self):
+        return f"{self.name} (Version {self.version})"
+
+# Creating an object
+model = AIModel("ChatGPT", "4.0")
+
+# Calling method
+print(model.details())  # Output: ChatGPT (Version 4.0)

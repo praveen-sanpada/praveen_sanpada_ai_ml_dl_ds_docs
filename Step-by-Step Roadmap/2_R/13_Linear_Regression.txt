@@ -1,0 +1,9 @@
+7. Important ML Concepts & Algorithms in R (IMP)
+Linear Regression (IMP)
+
+# Linear Regression Model
+model <- lm(score ~ pass, data=df)
+summary(model)
+
+# Predicting
+predictions <- predict(model, df)

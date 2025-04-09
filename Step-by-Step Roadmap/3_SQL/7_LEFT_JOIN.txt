@@ -1,0 +1,7 @@
+2. LEFT JOIN (IMP)
+Returns all records from the left table and matched from right table.
+
+SELECT Employees.EmployeeID, Employees.FirstName, Departments.DepartmentName
+FROM Employees
+LEFT JOIN Departments
+ON Employees.DepartmentID = Departments.DepartmentID;

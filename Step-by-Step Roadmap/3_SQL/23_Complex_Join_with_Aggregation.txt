@@ -1,0 +1,31 @@
+Real-time Practical Scenario (Advanced Example)
+Scenario: You have three tables:
+Employees(EmployeeID, Name, Salary, DepartmentID)
+Departments(DepartmentID, DepartmentName)
+Projects(ProjectID, ProjectName, EmployeeID)
+
+Complex Join with Aggregation (Real Example)
+
+SELECT e.EmployeeID, e.Name, d.DepartmentName, COUNT(p.ProjectID) AS TotalProjects
+FROM Employees e
+INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
+LEFT JOIN Projects p ON e.EmployeeID = p.EmployeeID
+GROUP BY e.EmployeeID, e.Name, d.DepartmentName
+ORDER BY TotalProjects DESC;
+
+
+Explanation:
+Joins Employees to Departments for employee details.
+Left join with Projects to count total projects per employee.
+Group by for aggregation.
+
+
+Commonly Used IMP SQL Concepts in DS & ML:
+SELECT, WHERE, ORDER BY	Data Retrieval
+Aggregations, GROUP BY	Data Analysis
+JOIN (INNER, LEFT)	Data Merging
+Subqueries	Complex Filters
+Views	Quick Data Access
+Indexes	Query Optimization
+CASE Statements	Feature Engineering
+Window Functions	Advanced Analytics

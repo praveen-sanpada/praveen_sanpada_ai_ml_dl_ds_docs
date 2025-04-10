@@ -1,0 +1,99 @@
+🎯 Step 9: Model Deployment & Operations (MLOps) – Advanced
+✅ 2) CI/CD Pipelines for ML/DL (Git, Jenkins, GitHub Actions) (IMP)
+
+
+🧠 What is CI/CD in ML?
+CI/CD (Continuous Integration / Continuous Deployment) automates the workflow from code commit to deployment in ML/DL projects.
+CI/CD helps you:
+🚀 Deliver models faster
+⚙️ Automatically test & retrain models
+📦 Push updates without downtime
+
+
+
+📘 Real-Life Analogy
+Think of CI/CD as a factory line for ML models:
+🛠 Code goes in
+✅ Gets tested
+📦 Packaged into a model
+🚀 Automatically deployed to production
+
+
+
+
+
+✅ CI/CD Pipeline Steps in ML Projects
+[Git Commit] → [Train & Test Model] → [Save Model] → [Dockerize] → [Deploy API]
+
+
+
+✅ Key Tools & Their Roles
+Tool	Role in Pipeline
+Git	Version control for code and data
+GitHub/GitLab	Hosts repo & triggers CI/CD
+Jenkins	Automation server to run ML pipelines
+GitHub Actions	CI/CD built into GitHub for ML workflows
+DVC	Manages datasets & models like Git
+
+
+
+
+✅ GitHub Actions – Example (CI for ML Model)
+Create .github/workflows/ml-ci.yml in your repo:
+
+name: Train and Test Model
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Train model
+      run: python train.py
+
+    - name: Run tests
+      run: pytest
+
+
+
+✅ Jenkins for ML – How it Works
+Step	Description
+🧱 Jenkinsfile	Defines steps: train → test → build → deploy
+🔄 Triggers	Runs on Git push or schedule
+📦 Artifacts	Can save trained model to S3, Docker Hub
+
+
+
+
+✅ Benefits of CI/CD for ML
+Benefit	Description
+🔁 Automation	Automatically test & deploy new models
+🧪 Quality Assurance	Prevents broken models in production
+📦 Versioning	Keeps track of model/code/data versions
+🚀 Speed	Faster releases with confidence
+
+
+
+✅ Summary Table
+Tool	Purpose
+Git	Code & version control
+GitHub Actions	Automate ML pipelines on push
+Jenkins	Advanced, customizable automation
+DVC	Track datasets & model binaries
+Docker	Containerize training/inference
+
+
+
+
+
+

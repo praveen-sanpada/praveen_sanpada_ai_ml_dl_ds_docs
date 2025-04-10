@@ -1,0 +1,59 @@
+🎯 Step 10: Big Data Technologies
+✅ 1) Concepts & Tools: Hadoop, Spark, Kafka (IMP)
+
+🧠 Why Big Data Tools?
+In real-world ML/DL applications, data often comes in huge volumes, high speed, and variety.
+Traditional tools (like Pandas) can't handle this. That’s where Big Data tools come in.
+
+✅ 1️⃣ Hadoop – Distributed Storage & Batch Processing
+Feature	Description
+🔄 Storage Engine	Stores massive files in HDFS (Hadoop Distributed File System)
+🧮 Processing Engine	Uses MapReduce to process data in parallel
+🗃 Batch System	Best for offline, large-scale batch jobs
+📊 Example Use Case	Analyzing 1TB+ of log data overnight
+
+✅ Think of Hadoop as a data warehouse + batch processor for massive static data.
+
+
+✅ 2️⃣ Apache Spark – Fast, In-Memory Distributed Computing
+Feature	Description
+⚡ In-memory engine	Much faster than Hadoop (no disk I/O)
+💬 Multi-language	Works with Python (PySpark), Scala, Java
+🧠 ML Support	Has built-in MLlib for machine learning
+🧮 Use Case	Streaming, real-time pipelines, big ETL jobs
+
+✅ Spark is used for fast distributed data processing and ML workflows over large datasets.
+
+
+✅ 3️⃣ Apache Kafka – Real-Time Data Streaming
+Feature	Description
+🔁 Data Streaming	Handles real-time data pipelines (logs, events)
+💡 Pub/Sub Model	Producers send data → Kafka → Consumers receive it
+⚙ Integrates with	Spark, Flink, databases, microservices
+📊 Use Case	Live dashboard updates, IoT, user behavior tracking
+
+✅ Kafka is like a live message bus between data sources and consumers — perfect for real-time analytics & streaming ML.
+
+
+
+✅ Summary Table
+Tool	Main Function	Use Case Example
+Hadoop	Distributed file storage + batch	Historical log analysis
+Spark	Fast parallel computation	ML over millions of records
+Kafka	Real-time data streaming	Processing live sensor or user data
+
+
+
+✅ Together in a Real Pipeline:
+[User Clickstream] → Kafka (stream)
+                   ↓
+             Spark (real-time analysis)
+                   ↓
+              Store to HDFS (Hadoop)
+                   ↓
+         Train ML model with Spark MLlib
+
+
+
+
+

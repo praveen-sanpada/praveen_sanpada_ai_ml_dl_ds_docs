@@ -1,0 +1,83 @@
+🎯 Step 10: Big Data Technologies
+✅ 3) Cloud Platforms – AWS, Azure, GCP (IMP)
+
+🧠 What Are Cloud Platforms?
+Cloud platforms provide on-demand computing, storage, and services to run your AI/ML projects at scale — without managing physical servers.
+You can:
+🚀 Train ML models with powerful GPUs
+☁ Store terabytes of data
+🧠 Deploy APIs, dashboards, and real-time apps
+
+
+✅ Why Use Cloud in ML?
+Benefit	Why It Matters
+💡 Scalable compute	Easily train big models on GPU/TPU
+☁ Managed services	No setup, just use APIs for ML, DBs, storage
+💾 Massive storage	Handle TBs of images, logs, models
+🚀 Easy deployment	Deploy APIs and notebooks in minutes
+
+
+✅ 1️⃣ AWS (Amazon Web Services)
+Feature	Description
+☁ Compute	EC2 (VMs), Sagemaker (ML pipeline platform)
+📦 Storage	S3 (object store), RDS (relational DB)
+🤖 ML Services	Amazon SageMaker, Comprehend (NLP), Rekognition (Vision)
+🔐 Security	IAM for permissions, VPC for isolation
+
+✅ Used heavily in enterprise AI, MLOps, and research.
+
+
+✅ 2️⃣ GCP (Google Cloud Platform)
+Feature	Description
+🧠 AI Services	Vertex AI, AutoML, Cloud Vision/NLP APIs
+🚀 Fast hardware	TPUs for deep learning (TensorFlow optimized)
+💽 Big Data	BigQuery (data warehouse), Dataflow, Pub/Sub
+🔁 Integrations	TensorFlow, Kubeflow, Colab-like notebooks
+
+✅ Great for deep learning, scalable pipelines, and fast prototyping.
+
+
+✅ 3️⃣ Azure (Microsoft Azure)
+Feature	Description
+📈 ML Studio	No-code/low-code ML pipelines
+🧠 Azure ML SDK	Python SDK for training, deployment, monitoring
+🔐 Enterprise-Ready	Active Directory, enterprise security
+📊 Data Services	Synapse, Cosmos DB, Data Lake
+
+✅ Popular in enterprise, healthcare, finance, and compliance-focused domains.
+
+
+✅ Summary Table
+Platform	ML Tooling	Best For
+AWS	SageMaker, EC2, S3	Full MLOps lifecycle, flexibility
+GCP	Vertex AI, BigQuery	Scalable ML, deep learning, AutoML
+Azure	Azure ML Studio, Synapse	GUI-friendly pipelines, enterprise
+
+
+
+✅ Real-World Use Cases
+Use Case	Platform Recommendation
+Train large vision model (GPU/TPU)	GCP / AWS
+Deploy fast REST API	AWS Lambda / Azure Apps
+AutoML with UI	Azure ML Studio
+Store and access big datasets (logs)	GCP BigQuery / AWS S3
+Scalable model deployment	AWS SageMaker / GCP Vertex AI
+
+
+
+
+✅ Common Cloud ML Services
+Service	Platform	Purpose
+SageMaker	AWS	Full ML pipeline (train + deploy)
+Vertex AI	GCP	Managed model lifecycle + AutoML
+Azure ML Studio	Azure	Visual interface for pipelines
+Lambda	AWS	Serverless function deployment
+Cloud Functions	GCP	Trigger ML on events
+
+
+
+
+
+
+
+

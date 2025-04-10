@@ -1,0 +1,106 @@
+🎯 Step 10: Big Data Technologies
+✅ 2) NoSQL Databases – MongoDB, Cassandra (IMP)
+
+🧠 What Are NoSQL Databases?
+NoSQL = Not Only SQL
+NoSQL databases store and manage unstructured, semi-structured, or large-scale structured data, unlike traditional row-column (SQL) databases.
+
+✅ They are optimized for:
+💾 High-volume
+📈 Scalability
+⚡ Fast reads/writes
+🌍 Distributed systems
+
+
+
+✅ 1️⃣ MongoDB – Document-Oriented NoSQL DB
+Feature	Description
+📄 Stores Data As	JSON-like documents (BSON)
+🧠 Schema-Free	Flexible fields per document
+🔁 CRUD Operations	Easy via Python (pymongo) or web tools
+⚡ Use Case	Fast API backends, ML logging, app data storage
+
+
+
+✅ Example Document (MongoDB):
+{
+  "user_id": "12345",
+  "name": "Alice",
+  "interests": ["AI", "Python", "Music"],
+  "score": 95
+}
+
+
+
+✅ Example Code (Using PyMongo):
+from pymongo import MongoClient
+client = MongoClient("mongodb://localhost:27017/")
+db = client["ml_db"]
+collection = db["users"]
+
+# Insert a document
+collection.insert_one({"name": "Alice", "score": 92})
+
+# Query
+user = collection.find_one({"name": "Alice"})
+print(user)
+
+
+
+
+✅ 2️⃣ Apache Cassandra – Column-Oriented NoSQL DB (for Big Data)
+Feature	Description
+📊 Data Structure	Wide-column store (like a big Excel with nested keys)
+⚡ Super Scalable	Handles billions of rows, distributed over clusters
+⏱️ High Write Speed	Write-optimized for streaming & real-time data
+🧠 Use Case	Sensor data, user logs, fraud detection pipelines
+
+
+
+✅ Cassandra is used by Netflix, Facebook, and Instagram for high-speed, high-scale data handling.
+
+
+
+
+✅ MongoDB vs Cassandra
+Feature	MongoDB	Cassandra
+Data Type	JSON-like Documents (NoSQL)	Key-value + column (BigTable style)
+Best For	App backends, nested JSON	Large-scale time-series data
+Query Language	MongoDB Query Language (MQL)	CQL (Cassandra Query Language)
+Scaling	Horizontal scaling	Massively scalable & distributed
+
+
+
+✅ Real-Life Use Cases
+Use Case	Tool
+Store predictions & features logs	MongoDB
+Track user activity (millions/sec)	Cassandra
+Real-time recommender system data	Cassandra
+Config storage for AI pipelines	MongoDB
+
+
+
+✅ Summary Table
+Tool	Type	Best Use Case
+MongoDB	Document store	App data, AI logs, user profiles
+Cassandra	Column store	Time-series data, real-time ingestion
+
+
+
+🛠 Common Tools/Libraries
+Tech	Purpose
+pymongo	Python client for MongoDB
+cassandra-driver	Python client for Cassandra
+Mongo Compass	GUI for browsing MongoDB
+DBeaver	GUI tool supporting both
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+🎯 Basic NLP Concepts
+✅ 2) Word Embeddings (Word2Vec, GloVe, FastText) – IMP
+
+🧠 What Are Word Embeddings?
+Word embeddings are dense vector representations of words that capture their semantic meaning and context.
+
+Instead of treating words as categories, we represent them as vectors in a high-dimensional space where similar words are close together.
+
+📘 Real-Life Analogy:
+🧠 You can tell that “king” is similar to “queen”, and “apple” is similar to “orange”.
+Word embeddings learn these relationships mathematically:
+"king"−"man"+"woman"≈"queen"
+
+✅ Why Use Word Embeddings?
+Advantage	Impact
+⚡ Captures meaning	Words with similar meanings → similar vectors
+📏 Reduces dimensionality	Compact and efficient representation
+🧠 Improves model accuracy	More context-aware input for ML/DL models
+
+✅ Common Word Embedding Models
+Embedding	Description
+Word2Vec	Learns word context via skip-gram/CBOW
+GloVe	Global Vectors – combines co-occurrence stats
+FastText	Like Word2Vec but includes subwords/characters
+
+✅ Example: Train Word2Vec on Custom Data using gensim
+import gensim
+from gensim.models import Word2Vec
+from nltk.tokenize import word_tokenize
+import nltk
+
+nltk.download('punkt')
+
+# Sample sentences
+sentences = [
+    "the king is strong",
+    "the queen is wise",
+    "the king and queen are royal",
+    "the man is brave",
+    "the woman is powerful"
+]
+
+# Tokenize each sentence
+tokenized_sentences = [word_tokenize(s.lower()) for s in sentences]
+
+# Train Word2Vec model
+model = Word2Vec(sentences=tokenized_sentences, vector_size=50, window=2, min_count=1, sg=1)
+
+# Find similar words
+print("🧠 Similar to 'king':", model.wv.most_similar('king'))
+print("🧮 Vector for 'queen':", model.wv['queen'])
+
+
+✅ Using Pretrained GloVe Vectors
+from gensim.scripts.glove2word2vec import glove2word2vec
+from gensim.models import KeyedVectors
+
+# Convert GloVe to word2vec format (run once)
+# glove2word2vec('glove.6B.100d.txt', 'glove.word2vec.txt')
+
+# Load pre-trained GloVe
+model = KeyedVectors.load_word2vec_format('glove.word2vec.txt', binary=False)
+
+# Check similarity
+print("🧠 Similar to 'computer':", model.most_similar('computer'))
+print("📏 Distance (king, queen):", model.similarity('king', 'queen'))
+
+Docs : https://nlp.stanford.edu/projects/glove/
+
+
+✅ Example: FastText Embeddings (with subwords)
+from gensim.models import FastText
+
+# Train FastText (can handle misspellings and subwords)
+fasttext_model = FastText(sentences=tokenized_sentences, vector_size=50, window=3, min_count=1)
+
+print("🧠 Similar to 'king':", fasttext_model.wv.most_similar('king'))
+print("🧬 Similar to typo 'kng':", fasttext_model.wv.most_similar('kng'))
+
+
+✅ Summary Table: Word Embedding Models
+Model	Learns From	Special Feature
+Word2Vec	Local context (skip-gram, CBOW)	Fast, flexible
+GloVe	Global co-occurrence	Balanced, pretrained available
+FastText	Words + subwords	Handles typos & rare words
+
+
+
+✅ Real-World Applications of Word Embeddings
+Use Case	Description
+🔍 Search engines	Match semantically similar queries
+🤖 Chatbots/NLP models	Understand context of user messages
+📊 Text classification	Convert text to embeddings for input to model
+🧾 Resume matching	Match job descriptions with candidate skills
+🧠 Language modeling (GPT, BERT)	Underlying concept in all transformers
+
+
+✅ When to Use Which?
+Scenario	Recommended Embedding
+Custom small dataset	Train Word2Vec/FastText
+Need to handle typos or subwords	FastText
+Large pretrained embeddings needed	GloVe or FastText
+
+
+

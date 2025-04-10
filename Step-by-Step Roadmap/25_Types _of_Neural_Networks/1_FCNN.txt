@@ -1,0 +1,97 @@
+🎯 Types of Neural Networks
+✅ 1) Fully Connected Neural Network (FCNN / Feedforward Neural Network)
+(AKA Multilayer Perceptron – MLP)
+
+🔍 What is an FCNN?
+A Fully Connected Neural Network (FCNN) is a type of neural network where every neuron in one layer is connected to every neuron in the next layer.
+No cycles
+Flows only forward (input → hidden layers → output)
+Great for tabular data, regression, classification
+
+🧠 Real-Life Example:
+🎓 Predict Student Performance
+
+You have:
+📚 Hours studied
+😴 Sleep hours
+🎮 Play time
+And you want to predict if a student will pass or fail.
+
+That’s a perfect job for an FCNN!
+
+===================================================================================================
+
+✅ FCNN Architecture (Simple):
+Input Layer       → [x1, x2, x3] = [Study, Sleep, Play]
+Hidden Layer      → ReLU activation
+Output Layer      → Sigmoid (0 = Fail, 1 = Pass)
+
+===================================================================================================
+
+✅ Python Code: FCNN Using TensorFlow/Keras
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# 📊 Sample Data: [Study, Sleep, Play], Output: 0 = Fail, 1 = Pass
+X = np.array([
+    [2, 9, 1],
+    [1, 5, 3],
+    [3, 6, 2],
+    [4, 8, 1],
+    [5, 7, 0],
+    [1, 4, 4]
+])
+
+y = np.array([1, 0, 1, 1, 1, 0])  # Pass or Fail
+y = y.reshape(-1, 1)  # Shape needed for binary output
+
+# 🔧 Build the FCNN
+model = Sequential([
+    Dense(10, input_dim=3, activation='relu'),  # 1st hidden layer
+    Dense(8, activation='relu'),               # 2nd hidden layer
+    Dense(1, activation='sigmoid')             # Output layer (binary)
+])
+
+# 🧪 Compile the model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# 🏋️ Train
+model.fit(X, y, epochs=100, verbose=0)
+
+# 📈 Predict on new student
+new_student = np.array([[3, 7, 1]])
+prediction = model.predict(new_student)
+
+print("🔮 Prediction (Pass Probability):", prediction[0][0])
+print("✅ Result:", "Pass" if prediction[0][0] > 0.5 else "Fail")
+
+===================================================================================================
+
+✅ Key Components of FCNN
+Layer Type	Description
+Input Layer	Takes feature vectors (e.g., [study, sleep])
+Hidden Layers	Do the computation with activations (ReLU)
+Output Layer	Final prediction (sigmoid for binary)
+
+===================================================================================================
+
+✅ Real-World Use Cases of FCNNs
+Task	Output Type
+Predict student pass/fail	Binary classification
+Predict house price	Regression
+Predict customer churn	Binary classification
+Predict credit score category	Multi-class classification
+
+===================================================================================================
+
+✅ Summary
+FCNN Feature	Explanation
+🌐 Structure	Fully connected layers (Dense)
+🔁 Direction	Feedforward only (no loops)
+✅ Use For	Simple ML problems (tabular data)
+❌ Not Ideal For	Images, sequences, time series
+
+===================================================================================================
+

@@ -1,0 +1,151 @@
+🎯 Step 7: Computer Vision (CV)
+✅ 3) Image Segmentation – Mask R-CNN, U-Net (IMP)
+Image segmentation goes beyond object detection – it identifies exact pixel boundaries of every object in an image.
+
+🧠 What Is Image Segmentation?
+Image segmentation means dividing an image into regions or segments, where each segment represents a meaningful object or part of it.
+Unlike object detection that gives bounding boxes, segmentation gives:
+Pixel-wise masks for objects
+Often used in medical imaging, satellite analysis, etc.
+
+
+📘 Real-Life Use Cases of Image Segmentation
+Domain	Use Case
+🏥 Healthcare	Tumor, organ segmentation in MRI/CT scans
+🚗 Automotive	Road lane, pedestrian segmentation for self-driving
+🛰️ Satellite	Land cover mapping (roads, buildings, trees)
+📷 Surveillance	Person vs background segmentation
+🧪 Biology	Cell or nucleus segmentation
+
+
+
+✅ Types of Image Segmentation
+Type	Description
+Semantic	Labels each pixel with a class (e.g., car, road)
+Instance	Separates individual objects of same class
+Panoptic	Combines semantic + instance segmentation
+
+
+✅ Popular Segmentation Models
+Model	Description	Use Case
+Mask R-CNN	Extension of Faster R-CNN with masks	Instance segmentation
+U-Net	Encoder-decoder model used in medical imaging	Semantic segmentation
+DeepLabV3+	Google’s high-accuracy semantic segmentation	Research & industrial use
+
+
+✅ Real-Life Example: Segment Objects Using Mask R-CNN
+🔧 Install Required Lib (Pre-trained model)
+pip install torch torchvision opencv-python
+
+
+
+✅ Code: Load COCO-pretrained Mask R-CNN (PyTorch)
+import torch
+import torchvision
+from torchvision.transforms import functional as F
+import cv2
+import matplotlib.pyplot as plt
+
+# Load model
+model = torchvision.models.detection.maskrcnn_resnet50_fpn(pretrained=True)
+model.eval()
+
+# Load and preprocess image
+img = cv2.imread("people.jpg")
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_tensor = F.to_tensor(img_rgb)
+
+# Inference
+with torch.no_grad():
+    preds = model([img_tensor])[0]
+
+# Draw masks for top predictions
+for i in range(len(preds["scores"])):
+    if preds["scores"][i] > 0.8:
+        mask = preds["masks"][i, 0].mul(255).byte().cpu().numpy()
+        color = (0, 255, 0)
+        img[mask > 128] = color
+
+# Show result
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.axis('off')
+plt.title("Mask R-CNN Segmentation")
+plt.show()
+
+
+
+
+
+✅ Real-Life Example: Medical Image Segmentation with U-Net
+U-Net Architecture Summary:
+Encoder: Learns features (like CNN)
+Decoder: Upsamples to get pixel-wise prediction
+Skip Connections: Preserve spatial info
+
+✅ Keras Code Example: U-Net for Binary Segmentation
+from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, UpSampling2D, concatenate
+from tensorflow.keras.models import Model
+
+def build_unet(input_shape=(128, 128, 1)):
+    inputs = Input(shape=input_shape)
+
+    # Encoder
+    c1 = Conv2D(32, 3, activation='relu', padding='same')(inputs)
+    p1 = MaxPooling2D()(c1)
+
+    c2 = Conv2D(64, 3, activation='relu', padding='same')(p1)
+    p2 = MaxPooling2D()(c2)
+
+    # Bottleneck
+    b = Conv2D(128, 3, activation='relu', padding='same')(p2)
+
+    # Decoder
+    u1 = UpSampling2D()(b)
+    concat1 = concatenate([u1, c2])
+    c3 = Conv2D(64, 3, activation='relu', padding='same')(concat1)
+
+    u2 = UpSampling2D()(c3)
+    concat2 = concatenate([u2, c1])
+    c4 = Conv2D(32, 3, activation='relu', padding='same')(concat2)
+
+    outputs = Conv2D(1, 1, activation='sigmoid')(c4)
+
+    model = Model(inputs=inputs, outputs=outputs)
+    return model
+
+model = build_unet()
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.summary()
+
+
+✅ Mask R-CNN vs U-Net Comparison
+Feature	Mask R-CNN	U-Net
+Task	Instance segmentation	Semantic segmentation
+Backbone	ResNet + FPN	Custom encoder-decoder
+Use Case	COCO-style object masks	Medical, binary mask tasks
+Pretrained?	✅ Yes (on COCO)	❌ Needs training from scratch
+
+
+
+
+✅ Real-World Projects You Can Build
+Project	Suggested Model
+Brain tumor segmentation (MRI)	U-Net
+Real-time person segmentation (webcam)	Mask R-CNN
+Land cover segmentation (satellite)	DeepLabV3+
+Pet image mask dataset	U-Net / Mask R-CNN
+
+✅ Summary Table
+Task	Tool
+Semantic Segmentation	U-Net, DeepLab
+Instance Segmentation	Mask R-CNN
+Pixel-level Annotation	Both
+Application Domains	Medical, Auto, Satellite
+
+
+
+
+
+
+
+

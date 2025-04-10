@@ -1,0 +1,40 @@
+1. Derivatives (IMP)
+A derivative represents the rate of change of a function.
+In ML, derivatives are used in gradient descent for model optimization.
+
+Real-Time Example:
+In gradient descent, we minimize a cost function (like MSE) by calculating its derivative to update model weights.
+
+Python Code (Symbolic Derivative using SymPy):
+
+from sympy import symbols, diff
+
+# Define variable and function
+x = symbols('x')
+f = x**2 + 3*x + 2
+
+# Derivative of the function
+df = diff(f, x)
+print("Derivative:", df)
+
+output: 
+Derivative: 2*x + 3
+
+
+===========================================================================================================
+
+Gradient Descent Example (Manual Conceptual)
+
+
+# Cost function: f(w) = (w - 3)^2
+# Derivative: f'(w) = 2*(w - 3)
+
+w = 0  # initial weight
+lr = 0.1  # learning rate
+
+for i in range(10):
+    grad = 2 * (w - 3)  # derivative
+    w = w - lr * grad   # update rule
+    print(f"Iteration {i+1}: w = {w}")
+
+

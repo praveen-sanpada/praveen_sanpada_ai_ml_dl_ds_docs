@@ -1,0 +1,25 @@
+C) Merging DataFrames
+💡 Real-Time Example: Join customer info with their purchase history
+
+# Customer Data
+customers = pd.DataFrame({
+    'CustomerID': [101, 102, 103],
+    'Name': ['Alice', 'Bob', 'Charlie']
+})
+
+# Orders Data
+orders = pd.DataFrame({
+    'OrderID': [1, 2, 3],
+    'CustomerID': [101, 102, 101],
+    'Amount': [250, 450, 130]
+})
+
+# Merge (Inner Join)
+merged_df = pd.merge(customers, orders, on='CustomerID', how='inner')
+print("\nMerged DataFrame (Inner Join):\n", merged_df)
+
+# Merge (Left Join)
+merged_left = pd.merge(customers, orders, on='CustomerID', how='left')
+print("\nMerged DataFrame (Left Join):\n", merged_left)
+
+

@@ -1,0 +1,161 @@
+Perfect! Here's a complete Python script that covers ALL essential Pandas functions for data cleaning, including:
+
+✅ Handling missing values
+✅ Removing duplicates
+✅ Data type conversion
+✅ Renaming columns
+✅ String cleanup
+✅ Outlier detection
+✅ Filtering
+✅ Replacing values
+✅ Resetting index
+✅ Encoding categorical data
+✅ Sorting
+✅ Exporting cleaned data
+
+
+💾 Full Pandas Data Cleaning Code (Copy-Paste Ready)
+
+# pandas_data_cleaning.py
+
+import pandas as pd
+import numpy as np
+
+# --------------------------------------------
+# 🔹 Step 1: Create a sample dirty dataset
+# --------------------------------------------
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Alice'],
+    'Age': [25, np.nan, 30, 22, 999, 25],
+    'City': ['New York', 'Los Angeles', 'new york', 'Chicago', 'New-York', None],
+    'Joined': ['2020-01-15', '2021/02/20', '2020-13-01', '2021-05-01', '2021-06-12', '2020-01-15'],
+    'Gender': ['F', 'M', 'M', 'M', 'F', 'F']
+}
+
+df = pd.DataFrame(data)
+print("🔹 Original Dirty Data:\n", df)
+
+# --------------------------------------------
+# ✅ Step 2: Handling Missing Values
+# --------------------------------------------
+
+# Check for missing values
+print("\n✅ Missing Values Count:\n", df.isnull().sum())
+
+# Fill missing values with default or calculated value
+df['Age'] = df['Age'].replace(999, np.nan)  # Treat 999 as missing
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+
+df['City'] = df['City'].fillna('Unknown')
+
+# --------------------------------------------
+# ✅ Step 3: Removing Duplicates
+# --------------------------------------------
+
+df = df.drop_duplicates()
+print("\n✅ Removed Duplicates:\n", df)
+
+# --------------------------------------------
+# ✅ Step 4: Standardizing Text / Strings
+# --------------------------------------------
+
+# Normalize City column (e.g., "New-York", "new york" -> "New York")
+df['City'] = df['City'].str.lower().str.replace('-', ' ').str.title()
+
+# Strip extra whitespace from names
+df['Name'] = df['Name'].str.strip().str.title()
+
+print("\n✅ Standardized Strings:\n", df)
+
+# --------------------------------------------
+# ✅ Step 5: Data Type Conversion
+# --------------------------------------------
+
+# Convert Joined column to datetime
+df['Joined'] = pd.to_datetime(df['Joined'], errors='coerce')
+
+# Fix invalid dates (NaT) if necessary
+df['Joined'] = df['Joined'].fillna(method='ffill')  # Forward fill
+
+# --------------------------------------------
+# ✅ Step 6: Outlier Detection (Age > 100)
+# --------------------------------------------
+
+# Filtering rows where Age looks suspicious (outlier logic)
+df = df[df['Age'] < 100]
+
+print("\n✅ After Handling Outliers:\n", df)
+
+# --------------------------------------------
+# ✅ Step 7: Replace Values
+# --------------------------------------------
+
+# Replace gender abbreviations
+df['Gender'] = df['Gender'].replace({'F': 'Female', 'M': 'Male'})
+
+# --------------------------------------------
+# ✅ Step 8: Filter Data (e.g., only New York residents)
+# --------------------------------------------
+
+ny_residents = df[df['City'] == 'New York']
+print("\n✅ Filtered: New York Residents:\n", ny_residents)
+
+# --------------------------------------------
+# ✅ Step 9: Resetting Index
+# --------------------------------------------
+
+df = df.reset_index(drop=True)
+print("\n✅ Reset Index:\n", df)
+
+# --------------------------------------------
+# ✅ Step 10: Encode Categorical Data (for ML)
+# --------------------------------------------
+
+# Convert 'Gender' to category codes
+df['Gender_Code'] = df['Gender'].astype('category').cat.codes
+print("\n✅ Encoded Categorical Column:\n", df[['Gender', 'Gender_Code']])
+
+# --------------------------------------------
+# ✅ Step 11: Sort Data
+# --------------------------------------------
+
+df = df.sort_values(by='Age', ascending=True)
+print("\n✅ Sorted by Age:\n", df)
+
+# --------------------------------------------
+# ✅ Step 12: Export Cleaned Data
+# --------------------------------------------
+
+# Export to CSV
+df.to_csv("cleaned_data.csv", index=False)
+print("\n✅ Cleaned Data exported to 'cleaned_data.csv'")
+
+
+=====================================================================================================================================
+
+Key Functions Used for Data Cleaning
+Category	Function/Method Used
+Missing Values	isnull(), fillna(), replace()
+Duplicates	drop_duplicates()
+String Cleanup	str.lower(), str.replace(), str.strip(), str.title()
+Type Conversion	pd.to_datetime()
+Outlier Handling	Filtering rows using conditions
+Replace Values	replace()
+Filtering	df[df[‘col’] == value]
+Index Reset	reset_index(drop=True)
+Encoding Categorical	astype('category').cat.codes
+Sorting	sort_values()
+Exporting	to_csv()
+
+=====================================================================================================================================
+
+Real-time Use Case:
+This code mimics cleaning a real-world customer dataset:
+Fixing invalid values
+Normalizing inconsistent formatting
+Handling missing/duplicate data
+Preparing for machine learning (encoding)
+
+=====================================================================================================================================
+

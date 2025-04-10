@@ -1,0 +1,25 @@
+3. Optimization (IMP)
+Optimization is the process of finding the best solution (usually minimum or maximum of a function).
+In ML, it is used to minimize loss functions.
+
+🔹 Real-Time Example:
+Optimizing weights of a neural network by minimizing loss using gradient-based methods like SGD, Adam.
+
+Python Code (Using SciPy for Minimization):
+
+from scipy.optimize import minimize
+import numpy as np
+
+# Define the function to minimize
+def cost_function(w):
+    return (w - 3)**2
+
+# Minimize it
+result = minimize(cost_function, x0=np.array([0]))
+print("Minimum at w =", result.x)
+
+
+Output:
+Minimum at w = [3.]
+
+

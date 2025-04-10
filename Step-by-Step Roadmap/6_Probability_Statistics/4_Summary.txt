@@ -1,0 +1,20 @@
+Summary of IMP Statistical Concepts in Data Science:
+Concept	Use-case (Real Example)
+Probability Distributions	Modeling real-world data (height, IQ)
+Hypothesis Testing	Validating medical treatments, A/B testing
+Regression Analysis	Predicting house prices, sales forecasting
+
+Importance in Data Science & Machine Learning:
+Probability Distributions help model uncertainty.
+Hypothesis Testing helps in data-driven decision-making.
+Regression Analysis is fundamental for predictive analytics.
+
+
+Real-time Comprehensive Example:
+Scenario:
+A company wants to determine if a marketing campaign has significantly increased sales and predict future sales.
+
+Steps:
+Probability: Model sales data distribution (Normal Distribution).
+Hypothesis Testing: Test before and after marketing campaign (T-Test).
+Regression: Predict future sales based on past data (Linear Regression).

@@ -1,0 +1,21 @@
+How These Concepts Apply in ML/DS:
+Concept	Real Application
+Derivatives	Gradient Descent, Backpropagation (DL)
+Integration	Probability, AUC (Area Under Curve)
+Optimization	Training models (minimizing loss function)
+
+Visual Example: Cost Function Optimization
+Imagine the loss curve as a parabola:
+Derivative tells the direction to move.
+Gradient descent follows the slope to reach the minimum.
+Integration helps compute areas under probability curves (PDFs).
+
+Future Concepts Built on This:
+Partial Derivatives & Jacobians: For multi-variable optimization.
+Stochastic Optimization: For large datasets (e.g., SGD).
+Automatic Differentiation: Used in frameworks like TensorFlow, PyTorch.
+
+Conclusion & What to Do Next:
+Practice symbolic and numerical calculus using SymPy and SciPy.
+Understand how derivatives and optimization power ML algorithms.
+Use these skills to implement and optimize custom loss functions, models, and training loops.

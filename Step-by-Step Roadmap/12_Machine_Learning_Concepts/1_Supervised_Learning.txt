@@ -1,0 +1,46 @@
+🚀 Step 3: Machine Learning Concepts
+
+✅ 1) Supervised Learning (IMP)
+Definition:
+In supervised learning, the model is trained on a labeled dataset, where the input features (X) and the correct output (Y) are provided.
+
+📌 Goal: Predict an output (label) from input data.
+
+
+🔹 Real-World Examples:
+Predicting house prices based on size, location → (Regression)
+Classifying emails as spam or not spam → (Classification)
+Diagnosing disease based on symptoms
+
+
+Common Algorithms:
+Linear Regression
+Logistic Regression
+Decision Trees
+Random Forest
+Support Vector Machines (SVM)
+K-Nearest Neighbors (KNN)
+Neural Networks
+
+✅ Python Code Example (Supervised - Classification):
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# Load sample dataset
+data = load_iris()
+X = data.data
+y = data.target
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Model
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# Predict & Evaluate
+y_pred = model.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))

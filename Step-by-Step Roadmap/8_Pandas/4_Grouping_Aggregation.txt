@@ -1,0 +1,32 @@
+Bonus: Grouping & Aggregation
+💡 Real-Time Example: Total purchase amount per customer
+
+# Group by Name and calculate total amount
+total_purchase = merged_df.groupby('Name')['Amount'].sum().reset_index()
+print("\nTotal Purchase Per Customer:\n", total_purchase)
+
+
+=========================================================================================
+
+Key Pandas Functions Summary (Quick Reference):
+Task	Function
+Read CSV	pd.read_csv()
+Handle missing values	dropna(), fillna()
+Remove duplicates	drop_duplicates()
+Filter rows	df[df['col'] > value]
+Create new column	df['new'] = df['col'].apply()
+Rename columns	rename()
+Merge DataFrames	pd.merge()
+Group & aggregate	groupby() + sum(), mean()
+
+=========================================================================================
+
+Conclusion & Real-World Use
+Pandas is used before any ML model training, and is essential for:
+Cleaning and preparing raw data
+Exploring and visualizing features
+Joining datasets
+Creating feature columns for models
+Pandas is the #1 tool for Data Wrangling.
+
+=========================================================================================

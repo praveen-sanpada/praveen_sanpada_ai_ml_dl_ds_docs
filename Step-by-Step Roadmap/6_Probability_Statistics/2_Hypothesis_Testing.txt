@@ -1,0 +1,31 @@
+2. Hypothesis Testing (IMP)
+Hypothesis testing assesses assumptions about populations using sample data.
+
+🔹 Common Tests:
+T-Test (comparing two means)
+Chi-Square Test (categorical data)
+ANOVA (comparing multiple means)
+
+Real-Time Example:
+Testing if a new medicine significantly reduces blood pressure.
+
+# Import library
+from scipy.stats import ttest_ind
+
+# Sample data (blood pressure)
+before_medication = [150, 155, 145, 160, 148]
+after_medication = [140, 135, 138, 142, 136]
+
+# Perform t-test
+t_statistic, p_value = ttest_ind(before_medication, after_medication)
+
+print("T-statistic:", t_statistic)
+print("P-value:", p_value)
+
+# Interpretation
+if p_value < 0.05:
+    print("Significant difference, medication is effective.")
+else:
+    print("No significant difference.")
+
+

@@ -1,0 +1,7 @@
+Importance in Machine Learning & Data Science
+
+Concept:                 Application in ML & DS     
+Vectors:                 Representing data points, features
+Matrices:                Dataset representation, transformations
+Eigenvectors:            PCA (Principal Component Analysis), dimensionality reduction
+Eigenvalues:             PCA, clustering, spectral analysis

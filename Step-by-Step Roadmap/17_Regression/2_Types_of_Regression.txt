@@ -1,0 +1,31 @@
+🎯 Complete Guide: Types of Regression in ML (with Python Code)
+
+✅ 1. Linear Regression : Models a straight-line relationship between independent and dependent variables.
+🔹 Use Case: Predicting house prices based on square footage.
+
+✅ 2. Polynomial Regression : Extends linear regression by adding polynomial terms.
+🔹 Use Case: Predicting car price based on age.
+
+✅ 3. Ridge Regression (L2 Regularization) : Penalizes large coefficients to reduce overfitting.
+🔹 Use Case: When there’s multicollinearity (correlated features).
+
+✅ 4. Lasso Regression (L1 Regularization) : Shrinks some coefficients to zero, performs feature selection.
+🔹 Use Case: High-dimensional data, feature selection.
+
+✅ 5. ElasticNet Regression (L1 + L2 Regularization) : Combines Ridge and Lasso.
+🔹 Use Case: When you want both feature selection and shrinkage.
+
+✅ 6. Logistic Regression (for Classification) : Used to predict probability for binary outcomes, not technically regression.
+🔹 Use Case: Email spam detection (spam or not spam)
+
+✅ 7. Support Vector Regression (SVR) : Uses SVM principles for regression.
+🔹 Use Case: When data is non-linear and you want to control margin.
+
+✅ 8. Decision Tree Regression : Splits data into regions, fits constant value in each.
+🔹 Use Case: Interpretable, non-linear patterns
+
+✅ 9. Random Forest Regression : Ensemble of decision trees → better generalization.
+
+✅ 10. Gradient Boosting Regression : Boosting technique that builds trees sequentially to reduce error.
+
+

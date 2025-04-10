@@ -1,0 +1,36 @@
+3. Regression Analysis (IMP)
+Regression analysis investigates relationships between variables and predicts outcomes.
+
+🔹 Common Types:
+Linear Regression
+Logistic Regression (classification)
+
+Real-Time Example:
+Predicting house prices based on size.
+
+# Import libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Real-time example data (size in sqft vs price in $)
+size_sqft = np.array([700, 850, 1200, 1500, 1750]).reshape(-1, 1)
+price = np.array([140000, 170000, 250000, 310000, 360000])
+
+# Linear Regression Model
+model = LinearRegression().fit(size_sqft, price)
+
+# Predict price for 2000 sqft
+predicted_price = model.predict([[2000]])
+print(f"Predicted price for 2000 sqft: ${predicted_price[0]:.2f}")
+
+# Plotting
+plt.scatter(size_sqft, price, color='blue')
+plt.plot(size_sqft, model.predict(size_sqft), color='red')
+plt.xlabel('Size (sqft)')
+plt.ylabel('Price ($)')
+plt.title('Linear Regression - House Price Prediction')
+plt.show()
+
+
+

@@ -1,0 +1,52 @@
+3. Eigenvalues and Eigenvectors (IMP)
+Eigenvectors of a matrix are vectors that remain parallel (only scale changes) when transformed by the matrix.
+Eigenvalues are scalars that represent this scaling.
+
+
+ 
+Example:
+
+Given matrix:
+
+
+
+import numpy as np
+
+A = np.array([[3, 1], [0, 2]])
+
+# Eigenvalues and Eigenvectors
+eigenvalues, eigenvectors = np.linalg.eig(A)
+
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:", eigenvectors)
+
+# Output:
+# Eigenvalues: [3. 2.]
+# Eigenvectors:
+# [[ 1.          0.70710678]
+#  [ 0.         -0.70710678]]
+
+
+
+# Importing NumPy
+import numpy as np
+
+# Creating a Matrix
+matrix_C = np.array([[4, 2], [1, 3]])
+
+# Eigenvalues and Eigenvectors
+eigenvalues, eigenvectors = np.linalg.eig(matrix_C)
+
+# Output results
+print("Matrix C:\n", matrix_C)
+print("Eigenvalues:", eigenvalues)
+print("Eigenvectors:\n", eigenvectors)
+
+
+Matrix C:
+ [[4 2]
+ [1 3]]
+Eigenvalues: [5. 2.]
+Eigenvectors:
+ [[ 0.89442719 -0.70710678]
+  [ 0.4472136   0.70710678]]

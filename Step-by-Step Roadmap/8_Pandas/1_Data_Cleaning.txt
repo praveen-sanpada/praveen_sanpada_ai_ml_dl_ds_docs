@@ -1,0 +1,36 @@
+1) Pandas – The Powerhouse for Data Analysis in Python
+Pandas provides two main data structures:
+
+Series – 1D data (like a single column)
+DataFrame – 2D tabular data (like Excel)
+
+
+A) Data Cleaning
+💡 Real-Time Example: Cleaning raw customer data from a CSV file (missing values, duplicates, wrong formats)
+
+import pandas as pd
+
+# Sample data (dirty dataset)
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', None, 'Alice'],
+    'Age': [25, None, 30, 22, 25],
+    'City': ['New York', 'Los Angeles', 'New York', 'Chicago', 'New York']
+}
+
+df = pd.DataFrame(data)
+print("Original DataFrame:\n", df)
+
+# Drop rows with missing values
+df_cleaned = df.dropna()
+
+# Or fill missing values
+df_filled = df.fillna({'Name': 'Unknown', 'Age': df['Age'].mean()})
+
+# Drop duplicates
+df_deduped = df.drop_duplicates()
+
+print("\nCleaned (NaNs dropped):\n", df_cleaned)
+print("\nFilled NaNs:\n", df_filled)
+print("\nDuplicates Removed:\n", df_deduped)
+
+

@@ -1,0 +1,94 @@
+🎯 Regression in Machine Learning (IMP)
+Regression is used to predict continuous numeric values — like price, salary, temperature, etc.
+
+✅ Types of Regression:
+Type	Description
+Linear	Predicts a straight-line relationship (Y = mX + b)
+Polynomial	Captures curved trends (uses powers of X: X², X³, etc.)
+Other Types (brief)	Ridge, Lasso, ElasticNet, SVR, etc.
+
+✅ 1) Linear Regression (Simple & Multiple)
+Linear relationship between input(s) X and target y
+Equation: Y = mX+c 
+
+🔹 Real Example: Predict house price based on size (sqft)
+
+✅ Code Example: Simple Linear Regression
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Data (size in sqft vs price)
+X = np.array([[500], [750], [1000], [1250], [1500]])
+y = np.array([100000, 150000, 200000, 250000, 300000])
+
+# Train model
+model = LinearRegression()
+model.fit(X, y)
+
+# Predict
+y_pred = model.predict(X)
+
+# Visualize
+plt.scatter(X, y, color='blue', label='Actual')
+plt.plot(X, y_pred, color='red', label='Predicted Line')
+plt.xlabel('Size (sqft)')
+plt.ylabel('Price ($)')
+plt.title('Simple Linear Regression')
+plt.legend()
+plt.show()
+
+
+✅ 2) Polynomial Regression
+Used when the data has a non-linear relationship, but still fits a curve.
+
+🔹 Real Example: Predict car price based on age (not linear — drops fast early, then levels off)
+✅ Code Example: Polynomial Regression
+
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample data (car age vs price)
+X = np.array([1, 2, 3, 4, 5, 6, 7]).reshape(-1, 1)
+y = np.array([25000, 22000, 19000, 16000, 15000, 14500, 14000])
+
+# Polynomial regression (degree 2)
+model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
+model.fit(X, y)
+y_pred = model.predict(X)
+
+# Visualize
+plt.scatter(X, y, color='blue', label='Actual')
+plt.plot(X, y_pred, color='green', label='Polynomial Fit')
+plt.xlabel('Car Age (Years)')
+plt.ylabel('Price ($)')
+plt.title('Polynomial Regression (Degree 2)')
+plt.legend()
+plt.show()
+
+
+
+✅ Performance Metrics for Regression:
+from sklearn.metrics import mean_squared_error, r2_score
+
+print("MSE:", mean_squared_error(y, y_pred))
+print("R2 Score:", r2_score(y, y_pred))  # 1 = perfect, closer to 1 = better
+
+
+✅ Summary of Regression Types
+Regression Type	When to Use	scikit-learn Tool
+Linear Regression	When relationship is straight-line	LinearRegression()
+Polynomial Regression	When relationship is curved	PolynomialFeatures + LinearRegression
+
+
+🧠 Real-World Use Cases:
+Problem	Regression Type
+Predict house prices	Linear / Polynomial
+Forecast sales trends	Linear / Time Series
+Estimate growth of plants	Polynomial
+Predict temperature vs time	Polynomial
+Salary prediction based on skills	Linear
+

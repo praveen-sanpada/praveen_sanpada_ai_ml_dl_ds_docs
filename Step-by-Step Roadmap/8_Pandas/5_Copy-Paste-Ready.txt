@@ -1,0 +1,94 @@
+Copy-Paste-Ready: Full Python File with Comments
+
+# pandas_demo.py
+
+# Import the required libraries
+import pandas as pd
+import numpy as np
+
+# -------------------------------------------
+# 🧹 A) DATA CLEANING EXAMPLE
+# -------------------------------------------
+
+# Sample dataset with missing values and duplicates
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', None, 'Alice'],
+    'Age': [25, None, 30, 22, 25],
+    'City': ['New York', 'Los Angeles', 'New York', 'Chicago', 'New York']
+}
+
+df = pd.DataFrame(data)
+print("🔹 Original DataFrame:\n", df)
+
+# Drop rows with missing values
+df_dropped = df.dropna()
+print("\n✅ Dropped Missing Values:\n", df_dropped)
+
+# Fill missing values
+df_filled = df.fillna({
+    'Name': 'Unknown',
+    'Age': df['Age'].mean()
+})
+print("\n✅ Filled Missing Values:\n", df_filled)
+
+# Remove duplicate rows
+df_deduped = df.drop_duplicates()
+print("\n✅ Removed Duplicates:\n", df_deduped)
+
+# -------------------------------------------
+# 🛠️ B) DATA MANIPULATION EXAMPLE
+# -------------------------------------------
+
+# Create new column "AgeGroup" based on conditions
+df['AgeGroup'] = df['Age'].apply(lambda x: 'Senior' if x >= 30 else 'Adult' if pd.notnull(x) else 'Unknown')
+print("\n🔹 Added AgeGroup Column:\n", df[['Name', 'Age', 'AgeGroup']])
+
+# Filter rows where Age > 25
+df_filtered = df[df['Age'] > 25]
+print("\n🔹 Filtered Rows (Age > 25):\n", df_filtered)
+
+# Rename the "City" column to "Location"
+df_renamed = df.rename(columns={'City': 'Location'})
+print("\n🔹 Renamed Column (City -> Location):\n", df_renamed.head())
+
+# -------------------------------------------
+# 🔗 C) MERGING DATAFRAMES EXAMPLE
+# -------------------------------------------
+
+# Create two sample DataFrames to simulate customer and order data
+customers = pd.DataFrame({
+    'CustomerID': [101, 102, 103],
+    'Name': ['Alice', 'Bob', 'Charlie']
+})
+
+orders = pd.DataFrame({
+    'OrderID': [1, 2, 3],
+    'CustomerID': [101, 102, 101],
+    'Amount': [250, 450, 130]
+})
+
+# Merge customers and orders using INNER JOIN
+merged_inner = pd.merge(customers, orders, on='CustomerID', how='inner')
+print("\n✅ Merged DataFrame (Inner Join):\n", merged_inner)
+
+# Merge customers and orders using LEFT JOIN
+merged_left = pd.merge(customers, orders, on='CustomerID', how='left')
+print("\n✅ Merged DataFrame (Left Join):\n", merged_left)
+
+# -------------------------------------------
+# 📊 D) GROUPING & AGGREGATION EXAMPLE
+# -------------------------------------------
+
+# Group by customer name and calculate total order amount
+total_per_customer = merged_inner.groupby('Name')['Amount'].sum().reset_index()
+print("\n📊 Total Purchase Per Customer:\n", total_per_customer)
+
+# -------------------------------------------
+# 📌 Summary of Actions:
+# - Cleaned data: dropna(), fillna(), drop_duplicates()
+# - Manipulated: new column, filtering, renaming
+# - Merged: customer and order tables
+# - Aggregated: total order per customer
+# -------------------------------------------
+
+

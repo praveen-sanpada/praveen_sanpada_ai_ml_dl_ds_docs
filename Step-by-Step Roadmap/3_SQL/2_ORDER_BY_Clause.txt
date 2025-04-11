@@ -1,8 +1,0 @@
-
-ORDER BY Clause
-
--- Sorting Results
-SELECT * FROM Employees
-ORDER BY Salary DESC; -- Sort salary from highest to lowest
-
-

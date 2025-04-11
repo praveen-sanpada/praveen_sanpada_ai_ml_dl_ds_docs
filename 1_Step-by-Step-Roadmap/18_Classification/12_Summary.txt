@@ -1,0 +1,12 @@
+🧠 Real-World Dataset to Try Them All
+Dataset: Titanic Survival / Heart Disease / Iris
+Try each algorithm and compare their performance using:
+
+from sklearn.metrics import classification_report
+print(classification_report(y_test, model.predict(X_test)))
+
+
+Would you like me to:
+Build a Jupyter Notebook that tests all these on one dataset?
+Include grid search (hyperparameter tuning)?
+Add visualization (confusion matrix, ROC curves)?

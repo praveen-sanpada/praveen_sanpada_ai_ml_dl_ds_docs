@@ -1,0 +1,26 @@
+2. Integration (IMP)
+Integration is the reverse of differentiation — used to calculate the area under curves, important in probability and expected value calculations.
+
+Real-Time Example:
+In ML, area under the ROC curve (AUC) is calculated using numerical integration.
+
+Python Code (Symbolic Integration):
+from sympy import integrate
+
+# Define function
+f = x**2 + 3*x + 2
+
+# Indefinite integral
+indef = integrate(f, x)
+print("Indefinite Integral:", indef)
+
+# Definite integral from x=0 to x=2
+definite = integrate(f, (x, 0, 2))
+print("Definite Integral (0 to 2):", definite)
+
+
+Output: 
+Indefinite Integral: x**3/3 + 3*x**2/2 + 2*x
+Definite Integral (0 to 2): 18.6666666666667
+
+

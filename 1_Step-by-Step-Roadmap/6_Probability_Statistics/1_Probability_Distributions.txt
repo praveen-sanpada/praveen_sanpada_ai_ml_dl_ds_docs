@@ -1,0 +1,41 @@
+Probability and Statistics in Data Science (IMP)
+Key Topics:
+Probability Distributions
+Hypothesis Testing
+Regression Analysis
+
+1. Probability Distributions (IMP)
+Probability distributions represent how probabilities are assigned to possible outcomes of an event.
+
+Common distributions:
+Normal (Gaussian)
+Binomial
+Poisson
+
+Real-Time Example:
+Normal distribution of people's height or IQ.
+
+# Import libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+# Generate Normal Distribution data
+mean = 170  # average height in cm
+std_dev = 10  # standard deviation
+heights = np.random.normal(mean, std_dev, 1000)
+
+# Plot distribution
+plt.hist(heights, bins=30, density=True, alpha=0.6, color='g')
+
+# Plot theoretical normal curve
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = norm.pdf(x, mean, std_dev)
+plt.plot(x, p, 'k', linewidth=2)
+plt.title('Normal Distribution of Heights')
+plt.xlabel('Height (cm)')
+plt.ylabel('Probability Density')
+plt.show()
+
+

@@ -1,0 +1,8 @@
+3. Functions (IMP)
+
+# Simple Function
+add_numbers <- function(a, b){
+  return(a + b)
+}
+
+add_numbers(10, 20)  # Output: 30

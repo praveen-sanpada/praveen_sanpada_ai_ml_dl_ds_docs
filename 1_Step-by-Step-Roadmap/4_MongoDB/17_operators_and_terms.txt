@@ -1,0 +1,72 @@
+Here's a concise, single-code snippet summarizing all important MongoDB operators and terms clearly explained in comments within the code itself:
+
+// MongoDB Operators and Important Terms
+
+// Comparison Operators
+$eq    // Matches values equal to a specified value.
+$ne    // Matches values not equal to a specified value.
+$gt    // Matches values greater than a specified value.
+$gte   // Matches values greater than or equal to a specified value.
+$lt    // Matches values less than a specified value.
+$lte   // Matches values less than or equal to a specified value.
+$in    // Matches any of the values in an array.
+$nin   // Matches none of the values specified in an array.
+
+// Logical Operators
+$and   // Joins conditions using logical AND.
+$or    // Joins conditions using logical OR.
+$not   // Negates the given condition.
+$nor   // Joins query clauses with a logical NOR.
+
+// Element Operators
+$exists    // Matches documents that have (or do not have) a specified field.
+$type      // Matches documents with the specified BSON type.
+
+// Evaluation Operators
+$regex     // Matches documents based on a regular expression.
+$text      // Performs a text search on fields indexed with a text index.
+
+// Update Operators
+$set       // Sets the value of a field.
+$unset     // Removes a field from a document.
+$inc       // Increments a numeric field by a specified value.
+$rename    // Renames a field.
+$push      // Adds an item to an array field.
+$pull      // Removes items from an array field.
+$addToSet  // Adds an item to an array only if it does not already exist.
+
+// Aggregation Pipeline Operators
+$match     // Filters documents that meet specified criteria.
+$group     // Groups documents by specified expressions.
+$project   // Selects specific fields and reshapes documents.
+$sort      // Sorts documents by specified fields.
+$limit     // Limits the number of documents passed to the next stage.
+$skip      // Skips over specified number of documents.
+$lookup    // Performs a join operation between collections.
+$unwind    // Deconstructs array fields to multiple documents.
+$count     // Counts number of documents processed.
+$out       // Writes the output to a collection.
+
+// Arithmetic Aggregation Operators
+$sum       // Calculates the sum of numeric values.
+$avg       // Calculates the average of numeric values.
+$min       // Finds the minimum value.
+$max       // Finds the maximum value.
+$multiply  // Multiplies numeric values.
+
+// Array Query Operators
+$size      // Matches arrays of a specified size.
+$elemMatch // Matches documents with arrays containing an element matching specified criteria.
+
+// Indexing
+createIndex()  // Creates an index on fields to improve query performance.
+
+// Examples of use in queries:
+db.collection.find({ salary: { $gt: 50000 } }); // salary greater than 50000
+db.collection.updateOne({name: "John"}, {$set: {age: 30}}); // sets age = 30
+db.collection.aggregate([
+  { $group: {_id: "$department", total: {$sum: "$salary"}} } // sums salaries by department
+]);
+
+
+This single comprehensive snippet clearly defines all MongoDB terms, operators, and their usage.

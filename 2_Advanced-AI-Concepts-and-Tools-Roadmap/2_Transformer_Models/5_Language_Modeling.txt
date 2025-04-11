@@ -1,0 +1,129 @@
+🎯 Important Topics in Transformer Architecture
+✅ 4) Language Modeling (Masked vs Causal) (IMP)
+
+🧠 What is Language Modeling?
+A language model (LM) is a neural network trained to understand, predict, or generate human language.
+
+Language modeling involves learning the probability of a word sequence:
+
+
+📘 Real-Life Analogy
+You’re texting:
+
+"I’m going to the ___."
+
+Your brain predicts words like “store”, “gym”, “office”.
+
+That’s language modeling — predicting the next word (causal) or filling in blanks (masked).
+
+
+
+✅ Types of Language Modeling
+Type	Description	Example Model
+Causal LM	Predicts the next word given previous context	GPT-2, GPT-3, GPT-4
+Masked LM	Predicts a missing word in the input	BERT, RoBERTa
+
+
+
+✅ 1️⃣ Causal Language Modeling (Auto-Regressive)
+The model can only see past tokens, not future ones — perfect for text generation.
+
+🔁 Predict word-by-word:
+Input:  The dog
+Model predicts: "barked"
+Input:  The dog barked
+Model predicts: "loudly"
+
+
+
+✅ Used in:
+ChatGPT, GPT-4
+Story generation
+Code generation
+Autocomplete
+
+
+✅ Code Example: Generate text using GPT-2
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+
+prompt = "In the future, AI will"
+inputs = tokenizer(prompt, return_tensors="pt")
+outputs = model.generate(inputs["input_ids"], max_length=50, do_sample=True)
+
+print("Generated:", tokenizer.decode(outputs[0], skip_special_tokens=True))
+
+
+
+
+
+
+✅ 2️⃣ Masked Language Modeling (Bidirectional)
+The model sees the entire sentence and learns to fill in missing tokens.
+
+🧠 Predict missing token:
+Input:  The cat [MASK] on the mat
+Model predicts: "sat"
+
+
+
+
+✅ Used in:
+BERT, RoBERTa, DistilBERT
+Text classification
+Named entity recognition
+Feature extraction
+
+
+
+✅ Code Example: Fill mask with BERT
+from transformers import pipeline
+
+fill_mask = pipeline("fill-mask", model="bert-base-uncased")
+print(fill_mask("The capital of France is [MASK]."))
+
+
+
+
+✅ Key Differences: Masked vs Causal
+Feature	Masked LM (BERT)	Causal LM (GPT)
+Input Visibility	Sees full sentence	Sees only previous tokens
+Output Goal	Predict masked token	Predict next token
+Training	Fill-in-the-blank objective	Left-to-right prediction
+Use Case	Understanding tasks	Generation tasks
+Examples	BERT, RoBERTa	GPT, GPT-2, GPT-3
+
+
+
+✅ Real-Life Use Cases
+Use Case	Language Modeling Type	Model
+Text generation	Causal (auto-regressive)	GPT-3/GPT-4
+Sentence embedding	Masked	BERT
+Code suggestion	Causal	Codex
+Masked word prediction	Masked	BERT
+Chatbot / Dialogue agent	Causal	GPT
+Classification (e.g., spam)	Masked	RoBERTa
+
+
+
+
+✅ Summary Table
+Concept	Description
+Causal LM	Predicts the next word
+Masked LM	Predicts masked tokens
+Direction	Left-to-right (causal) vs Bidirectional
+Model Examples	GPT (causal), BERT (masked)
+Used In	Chatbots, QA, Classification, Summarization
+
+
+
+
+✅ Bonus: Combined Modeling
+Some models use both masked and causal approaches:
+T5 uses a “text-to-text” strategy — everything is converted to a sequence generation task.
+XLNet mixes auto-regressive and auto-encoding.
+
+
+

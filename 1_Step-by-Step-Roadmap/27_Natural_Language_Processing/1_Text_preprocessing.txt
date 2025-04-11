@@ -1,0 +1,93 @@
+🎯 Step 6: NLP (Natural Language Processing)
+✅ Basic NLP Concepts – 1) Text Preprocessing (IMP)
+
+🤖 What is Text Preprocessing?
+Text preprocessing is the first step in NLP — preparing raw text for analysis or training a model.
+
+It's like cleaning and organizing your text before feeding it to a machine learning or deep learning model.
+
+🧠 Why It’s Important?
+Reduces noise and irrelevant info
+Converts unstructured text into structured format
+Improves model accuracy and efficiency
+
+✅ Real-Life Example: Sentiment Analysis on Movie Reviews
+“The movie was absolutely amazing and mind-blowing!”
+Raw text is messy → we need to clean it:
+Remove stopwords (e.g., was, and)
+Convert to lowercase
+Tokenize
+Apply stemming/lemmatization
+
+✅ Key Preprocessing Techniques
+Technique	Description
+Tokenization	Breaks text into words or sentences
+Stopwords Removal	Removes common filler words (e.g., is, the)
+Stemming	Removes suffixes (e.g., “playing” → “play”)
+Lemmatization	Converts word to base dictionary form (better than stemming)
+
+✅ Python Code: All Text Preprocessing Steps
+import nltk
+import re
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer, WordNetLemmatizer
+
+# Download NLTK data
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+# Sample text
+text = "The movie was absolutely amazing! It had thrilling action scenes and beautiful visuals."
+
+# Lowercase
+text = text.lower()
+
+# Remove punctuation/numbers
+text = re.sub(r'[^a-zA-Z\s]', '', text)
+
+# Tokenization
+tokens = word_tokenize(text)
+print("🔹 Tokens:", tokens)
+
+# Stopword Removal
+stop_words = set(stopwords.words('english'))
+filtered = [word for word in tokens if word not in stop_words]
+print("🔹 Without Stopwords:", filtered)
+
+# Stemming
+stemmer = PorterStemmer()
+stemmed = [stemmer.stem(word) for word in filtered]
+print("🔹 Stemmed Words:", stemmed)
+
+# Lemmatization
+lemmatizer = WordNetLemmatizer()
+lemmatized = [lemmatizer.lemmatize(word) for word in filtered]
+print("🔹 Lemmatized Words:", lemmatized)
+
+✅ Output Example:
+🔹 Tokens: ['the', 'movie', 'was', 'absolutely', 'amazing', 'it', 'had', 'thrilling', 'action', 'scenes', 'and', 'beautiful', 'visuals']
+🔹 Without Stopwords: ['movie', 'absolutely', 'amazing', 'thrilling', 'action', 'scenes', 'beautiful', 'visuals']
+🔹 Stemmed Words: ['movi', 'absolut', 'amaz', 'thrill', 'action', 'scene', 'beauti', 'visual']
+🔹 Lemmatized Words: ['movie', 'absolutely', 'amazing', 'thrilling', 'action', 'scene', 'beautiful', 'visual']
+
+✅ Real-World Applications Using Preprocessing
+Task	Preprocessing Role
+Sentiment Analysis	Normalize reviews for polarity detection
+Chatbots	Clean and parse user input
+Resume Screening	Extract keywords and match job profiles
+Spam Filtering	Convert email text into features for models
+
+✅ Summary Table
+Step	Output/Goal
+Tokenization	['this', 'is', 'cool']
+Stopwords Removal	Removes ['is']
+Stemming	'running' → 'run'
+Lemmatization	'better' → 'good', 'was' → 'be'
+Final Output	Clean, short list of meaningful keywords
+
+
+
+
+

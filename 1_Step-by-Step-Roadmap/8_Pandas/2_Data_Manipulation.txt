@@ -1,0 +1,17 @@
+B) Data Manipulation
+💡 Real-Time Example: Create a new column “Age Group”, filter customers over age 25
+
+# Add new column
+df['AgeGroup'] = df['Age'].apply(lambda x: 'Senior' if x >= 30 else 'Adult')
+
+# Filter rows where age > 25
+df_filtered = df[df['Age'] > 25]
+
+# Rename column
+df_renamed = df.rename(columns={'City': 'Location'})
+
+print("\nNew Column (AgeGroup):\n", df[['Name', 'Age', 'AgeGroup']])
+print("\nFiltered (Age > 25):\n", df_filtered)
+print("\nRenamed Column:\n", df_renamed.head())
+
+

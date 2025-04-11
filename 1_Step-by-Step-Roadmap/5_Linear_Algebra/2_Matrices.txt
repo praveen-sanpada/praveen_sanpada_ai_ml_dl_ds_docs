@@ -1,0 +1,58 @@
+2. Matrices (IMP)
+A matrix is a rectangular arrangement of numbers into rows and columns.
+
+Example:
+
+
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+result = np.dot(A, B)
+print(result)
+# Output: [[19 22]
+#          [43 50]]
+
+
+
+# Importing NumPy
+import numpy as np
+
+# Creating Matrices
+matrix_A = np.array([[1, 2], [3, 4]])
+matrix_B = np.array([[5, 6], [7, 8]])
+
+# Matrix Operations
+matrix_addition = matrix_A + matrix_B         # Addition
+matrix_multiplication = np.dot(matrix_A, matrix_B)  # Multiplication
+matrix_transpose = matrix_A.T                 # Transpose
+matrix_inverse = np.linalg.inv(matrix_A)      # Inverse (only for square matrices)
+
+# Output results
+print("Matrix A:\n", matrix_A)
+print("Matrix B:\n", matrix_B)
+print("Matrix Addition:\n", matrix_addition)
+print("Matrix Multiplication:\n", matrix_multiplication)
+print("Matrix Transpose (A):\n", matrix_transpose)
+print("Matrix Inverse (A):\n", matrix_inverse)
+
+
+Matrix A:
+ [[1 2]
+ [3 4]]
+Matrix B:
+ [[5 6]
+ [7 8]]
+Matrix Addition:
+ [[ 6  8]
+ [10 12]]
+Matrix Multiplication:
+ [[19 22]
+ [43 50]]
+Matrix Transpose (A):
+ [[1 3]
+ [2 4]]
+Matrix Inverse (A):
+ [[-2.   1. ]
+ [ 1.5 -0.5]]

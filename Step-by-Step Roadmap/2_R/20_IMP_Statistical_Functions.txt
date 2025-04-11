@@ -1,7 +1,0 @@
-11. IMP Statistical Functions
-
-# Correlation (IMP)
-cor(df$score, as.numeric(df$pass))
-
-# T-test
-t.test(df$score ~ df$pass)

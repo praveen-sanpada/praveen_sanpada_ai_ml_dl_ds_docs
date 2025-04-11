@@ -1,0 +1,114 @@
+🎯 Step 9: Model Deployment & Operations (MLOps) – Advanced
+✅ 3) Model Monitoring & Maintenance (MLflow, TensorBoard) (IMP)
+
+🧠 What is Model Monitoring & Maintenance?
+Once a model is deployed, it doesn’t stop learning.
+You must monitor, log, and update it continuously to ensure performance, reliability, and fairness in the real world.
+
+📘 Real-Life Analogy
+Training and deploying a model is like launching a rocket 🚀
+But monitoring is the control room — checking telemetry, fixing issues, and keeping everything safe!
+
+✅ Why It's Important?
+Reason	Why it Matters
+📉 Model Drift	Data changes over time → performance drops
+📊 Metrics Tracking	Track accuracy, loss, latency, etc.
+🔁 Retraining Needed	Schedule retraining if quality decreases
+🧪 Debugging	Detect bugs or input errors in real-time
+
+
+✅ Key Tools for Model Monitoring
+Tool	Role
+MLflow	Track experiments, model versions, metrics, parameters
+TensorBoard	Visualize training logs (loss, accuracy, histograms)
+Prometheus + Grafana	Monitor live metrics in production systems
+Evidently	Track data drift, bias, and concept drift
+
+
+✅ What to Monitor?
+What to Monitor	Example
+🎯 Accuracy/Precision	Decreasing model quality
+⏱ Inference Latency	Model responding slowly
+📊 Data Distribution	Input data drifting from training data
+🧪 Error Rate	Increase in failed predictions
+💬 User Feedback	Human-in-the-loop alerts
+
+
+
+✅ MLflow Example: Log Model & Metrics
+pip install mlflow
+
+import mlflow
+import mlflow.sklearn
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+# Load & train
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+model = RandomForestClassifier().fit(X_train, y_train)
+
+# Predict
+y_pred = model.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
+
+# Log model & metrics
+mlflow.start_run()
+mlflow.log_metric("accuracy", acc)
+mlflow.sklearn.log_model(model, "random_forest_model")
+mlflow.end_run()
+
+
+🖥 Visit http://localhost:5000 to view MLflow dashboard (run mlflow ui in terminal)
+
+
+
+✅ TensorBoard Example: Monitor Deep Learning Training
+from tensorflow.keras.callbacks import TensorBoard
+import tensorflow as tf
+
+# Create model
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(3, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# Setup TensorBoard callback
+tb_callback = TensorBoard(log_dir='./logs', histogram_freq=1)
+
+# Train model with logging
+model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test), callbacks=[tb_callback])
+
+
+Run this to view TensorBoard:
+tensorboard --logdir=./logs
+
+
+
+
+✅ Summary Table
+Tool	Purpose
+MLflow	Logs parameters, metrics, models, versions
+TensorBoard	Visualizes DL metrics and graphs
+Prometheus/Grafana	Monitor infra/model in real-time
+Evidently	Detects data drift and quality issues
+
+
+
+
+
+✅ Maintenance Practices
+Task	Action
+🔄 Retrain Periodically	Set up CRON jobs or CI/CD
+🧪 Test New Models	Use A/B testing or shadow deployment
+📊 Alerting	Trigger alerts on metric thresholds
+🧠 Human Feedback Loop	Allow user corrections into retraining
+
+
+
+
+

@@ -1,0 +1,8 @@
+Window Functions (IMP & Advanced)
+
+-- Ranking Employees by Salary
+SELECT EmployeeID, FirstName, Salary,
+RANK() OVER (ORDER BY Salary DESC) AS SalaryRank
+FROM Employees;
+
+

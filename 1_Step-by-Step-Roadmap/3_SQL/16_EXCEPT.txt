@@ -1,0 +1,6 @@
+EXCEPT (Difference)
+
+SELECT EmployeeID FROM Employees_US
+EXCEPT
+SELECT EmployeeID FROM Employees_UK;
+

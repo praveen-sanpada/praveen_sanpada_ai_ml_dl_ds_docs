@@ -1,0 +1,99 @@
+🎯 Regression Evaluation Metrics (IMP)
+These metrics are used to measure the accuracy of regression models — models that predict continuous values like price, age, score, etc.
+
+📘 Suppose:
+You built a model to predict house prices.
+Now you want to evaluate how accurate your predictions are compared to the actual prices.
+This is where regression metrics come in 👇
+
+==================================================================================================================================================
+
+✅ 1. Mean Absolute Error (MAE)
+📌 The average absolute difference between predicted and actual values.
+Easy to understand
+Doesn't punish big errors too harshly
+
+🔹 Example: Model predicts house price off by $10K, $5K, $15K → MAE ≈ $10K
+
+==================================================================================================================================================
+
+✅ 2. Mean Squared Error (MSE)
+📌 The average squared difference between actual and predicted values.
+Penalizes large errors more heavily
+Higher MSE = worse performance
+
+==================================================================================================================================================
+
+✅ 3. Root Mean Squared Error (RMSE)
+📌 Just the square root of MSE
+Same unit as the target variable (e.g., $)
+Better for interpreting error size in real units
+
+==================================================================================================================================================
+
+✅ 4. R² Score (Coefficient of Determination)
+📌 Represents the proportion of variance explained by the model
+R² = 1 → Perfect fit
+R² = 0 → Model no better than guessing
+Can be negative if the model is really bad
+
+==================================================================================================================================================
+
+✅ Example Code: Evaluate Regression Model
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+import numpy as np
+
+# Sample data: X = sqft, y = price
+X = np.array([[500], [750], [1000], [1250], [1500]])
+y = np.array([100000, 150000, 200000, 250000, 300000])
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Train model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Evaluation metrics
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+
+print("📊 Mean Absolute Error (MAE):", mae)
+print("📊 Mean Squared Error (MSE):", mse)
+print("📊 Root Mean Squared Error (RMSE):", rmse)
+print("📈 R² Score:", r2)
+
+==================================================================================================================================================
+
+✅ Output Example:
+📊 MAE: 10000.0
+📊 MSE: 120000000.0
+📊 RMSE: 10954.45
+📈 R² Score: 0.98
+
+==================================================================================================================================================
+
+✅ Summary Table
+Metric	Description	Best Value	Unit
+MAE	Avg. absolute error	Close to 0	Same as target (e.g., $)
+MSE	Avg. squared error	Close to 0	Squared unit
+RMSE	Square root of MSE	Close to 0	Same as target
+R²	Proportion of variance explained	Close to 1	Unitless
+
+==================================================================================================================================================
+
+🧠 Real-Life Use Cases:
+Project	Ideal Metric
+Predict house/car prices	RMSE + R²
+Forecast energy consumption	MAE + RMSE
+Stock market or time-series models	MAE (less sensitive to spikes)
+Any general regression	Use all four for better insights
+
+==================================================================================================================================================

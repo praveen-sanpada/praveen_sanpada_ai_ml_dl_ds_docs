@@ -1,0 +1,10 @@
+Matrices (IMP)
+
+# Creating a matrix
+mat <- matrix(1:9, nrow = 3, ncol = 3)
+mat
+
+# Access elements
+mat[1,2]  # Row 1, Column 2
+
+

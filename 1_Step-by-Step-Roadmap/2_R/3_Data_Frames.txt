@@ -1,0 +1,15 @@
+Data Frames (IMP for DS/ML)
+
+# Create Data Frame
+df <- data.frame(
+  name = c("AI", "ML", "DS"),
+  score = c(90, 85, 95),
+  pass = c(TRUE, TRUE, TRUE)
+)
+
+# Access elements
+df$name
+df[1,2]
+
+# Summary
+summary(df)

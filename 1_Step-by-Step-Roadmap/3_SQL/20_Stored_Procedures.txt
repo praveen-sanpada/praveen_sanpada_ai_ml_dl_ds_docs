@@ -1,0 +1,13 @@
+Stored Procedures (IMP for Advanced Usage)
+
+-- Creating Stored Procedure
+CREATE PROCEDURE GetEmployeesByDept @DeptID INT
+AS
+BEGIN
+    SELECT * FROM Employees WHERE DepartmentID = @DeptID;
+END;
+
+-- Executing Stored Procedure
+EXEC GetEmployeesByDept @DeptID = 3;
+
+

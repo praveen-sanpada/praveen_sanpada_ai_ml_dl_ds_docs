@@ -1,0 +1,6 @@
+Real-time Practical Use-case Example:
+Principal Component Analysis (PCA) is used to reduce dimensionality:
+Compute covariance matrix.
+Eigenvectors provide principal components.
+Eigenvalues indicate the variance explained by each principal component.
+

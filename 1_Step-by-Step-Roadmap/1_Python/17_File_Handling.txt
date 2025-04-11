@@ -1,0 +1,11 @@
+File Handling (IMP)
+
+# Writing to file
+with open("example.txt", "w") as file:
+    file.write("Hello AI!")
+
+# Reading from file
+with open("example.txt", "r") as file:
+    print(file.read())  # Output: Hello AI!
+
+

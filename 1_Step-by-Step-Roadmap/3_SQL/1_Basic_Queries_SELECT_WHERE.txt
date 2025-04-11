@@ -1,0 +1,15 @@
+Complete SQL Queries (Basic to Advanced)
+
+Basic Queries (SELECT, WHERE)
+
+-- Simple SELECT statement
+SELECT * FROM Employees;
+
+-- SELECT specific columns
+SELECT EmployeeID, FirstName, Salary FROM Employees;
+
+-- WHERE clause for filtering
+SELECT * FROM Employees
+WHERE Salary > 50000;
+
+

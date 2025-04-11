@@ -1,0 +1,23 @@
+Inheritance (IMP)
+
+# Base Class
+class AI:
+    def __init__(self, model_name):
+        self.model_name = model_name
+    
+    def describe(self):
+        return f"Model: {self.model_name}"
+
+# Derived Class
+class ChatBot(AI):
+    def __init__(self, model_name, chatbot_name):
+        super().__init__(model_name)
+        self.chatbot_name = chatbot_name
+    
+    def bot_details(self):
+        return f"{self.chatbot_name} ({self.describe()})"
+
+bot = ChatBot("GPT-4", "ChatGPT")
+print(bot.bot_details())  # Output: ChatGPT (Model: GPT-4)
+
+

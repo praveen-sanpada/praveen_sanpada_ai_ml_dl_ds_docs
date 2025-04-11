@@ -1,0 +1,13 @@
+Step 2: Query Operators (IMP)
+Comparison Operators
+
+// Greater than
+db.employees.find({ salary: { $gt: 70000 } });
+
+// Less than or equal
+db.employees.find({ salary: { $lte: 80000 } });
+
+// Not equal
+db.employees.find({ department: { $ne: "AI" } });
+
+

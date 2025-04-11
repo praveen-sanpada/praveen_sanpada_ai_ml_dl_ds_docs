@@ -1,0 +1,12 @@
+Logical Operators
+
+// AND
+db.employees.find({ $and: [{ salary: { $gt: 70000 } }, { department: "ML" }] });
+
+// OR
+db.employees.find({ $or: [{ salary: { $gt: 80000 } }, { department: "AI" }] });
+
+// NOT
+db.employees.find({ salary: { $not: { $gt: 80000 } } });
+
+

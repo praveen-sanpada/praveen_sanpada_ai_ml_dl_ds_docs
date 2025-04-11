@@ -1,0 +1,121 @@
+🎯 Step 7: Computer Vision (CV)
+✅ 4) Face Recognition (IMP)
+Face recognition is the process of identifying or verifying a person using their facial features in an image or video.
+
+🧠 What Is Face Recognition?
+It combines face detection (finding faces) with face identification (matching them to known identities).
+Steps include:
+Detect face in the image
+Extract facial features (encodings)
+Compare with known faces
+
+
+✅ Real-Life Applications of Face Recognition
+Domain	Use Case
+🔐 Security	Unlock phones, doors, or accounts
+👮 Surveillance	Watchlist matching in CCTV footage
+🧾 Attendance	Auto-mark employee/student presence
+📸 Tagging	Facebook/Google Photos auto-tagging
+🏦 Banking	Verify user identity for login or payments
+
+
+✅ Key Libraries & Models
+Library/Tool	Use Case
+face_recognition	Easy face encoding and matching
+dlib	Landmark detection & deep face models
+OpenCV	Face detection (Haar, DNN, etc.)
+MTCNN	High-accuracy face detection
+DeepFace	Unified face recognition framework
+
+
+
+✅ Python Code: Face Recognition with face_recognition Library
+🔧 Step 1: Install Library
+pip install face_recognition opencv-python
+
+
+
+✅ Step 2: Code to Detect and Recognize Faces
+import face_recognition
+import cv2
+
+# Load known image & encode
+known_image = face_recognition.load_image_file("person1.jpg")
+known_encoding = face_recognition.face_encodings(known_image)[0]
+
+# Load test image
+test_image = face_recognition.load_image_file("test.jpg")
+face_locations = face_recognition.face_locations(test_image)
+face_encodings = face_recognition.face_encodings(test_image)
+
+# Compare
+for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
+    result = face_recognition.compare_faces([known_encoding], face_encoding)
+
+    name = "Unknown"
+    if result[0]:
+        name = "Person 1"
+
+    # Draw box and label
+    cv2.rectangle(test_image, (left, top), (right, bottom), (0, 255, 0), 2)
+    cv2.putText(test_image, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+
+# Show image
+cv2.imshow("Face Recognition", cv2.cvtColor(test_image, cv2.COLOR_RGB2BGR))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+
+✅ Summary: How Face Recognition Works
+Step	Description
+1️⃣ Detect Face	Use Haar, DNN, or MTCNN to locate face in image
+2️⃣ Encode Features	Generate 128-dim face encoding vector
+3️⃣ Compare Face	Measure distance between encodings
+✅ Match Result	If distance is below threshold → Match!
+
+
+
+
+
+✅ Popular Models for Face Recognition
+Model	Description
+FaceNet	Embedding model used in Google Photos
+DeepFace	Unified library with many model options
+Dlib ResNet	Used in face_recognition lib
+MTCNN + ArcFace	High-accuracy detection + encoding
+
+
+
+✅ Face Recognition vs Detection
+Task	Face Detection	Face Recognition
+Goal	Find faces in an image	Identify who the face belongs to
+Output	Face coordinates	Name or ID
+Common Models	Haar, SSD, MTCNN	FaceNet, ArcFace, Dlib
+
+
+
+
+
+
+✅ Real-World Projects You Can Build
+Project	Tools/Models
+🔐 Face unlock system	face_recognition, OpenCV
+🎥 CCTV alert for strangers	Real-time matching system
+📚 Smart attendance	Webcam + face DB
+🤖 Access control (IoT)	Raspberry Pi + camera
+
+
+
+✅ Summary Table
+Task	Tool Used	Output
+Detect face	cv2.CascadeClassifier()	Face location (x, y, w, h)
+Encode face	face_recognition.face_encodings()	128-dim vector
+Match face	face_recognition.compare_faces()	True / False match
+
+
+
+
+
+

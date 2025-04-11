@@ -1,0 +1,13 @@
+10. Web Scraping (IMP)
+
+library(rvest)
+
+# Scraping Example
+url <- "https://example.com"
+webpage <- read_html(url)
+
+# Extracting data
+titles <- webpage %>% html_nodes('h2') %>% html_text()
+print(titles)
+
+

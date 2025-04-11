@@ -1,0 +1,9 @@
+Joins in SQL (IMP)
+
+1. INNER JOIN
+Returns matching rows from both tables.
+
+SELECT Employees.EmployeeID, Employees.FirstName, Departments.DepartmentName
+FROM Employees
+INNER JOIN Departments
+ON Employees.DepartmentID = Departments.DepartmentID;

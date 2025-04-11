@@ -1,4 +1,0 @@
-Summary Statistics
-
-summary(df$score)
-boxplot(df$score, main="Score Distribution")

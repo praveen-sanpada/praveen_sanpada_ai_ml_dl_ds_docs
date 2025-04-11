@@ -1,0 +1,12 @@
+Lists (IMP for ML)
+
+# Creating a list
+my_list <- list(
+  nums = c(1, 2, 3),
+  chars = c("AI", "DS"),
+  flag = TRUE
+)
+
+# Accessing list elements
+my_list$nums
+my_list[[2]]

@@ -1,0 +1,11 @@
+8. Packages IMP for ML & DS in R
+
+# Installation
+install.packages(c("dplyr", "ggplot2", "caret", "randomForest", "e1071"))
+
+# Loading packages
+library(caret)          # ML training/testing & cross-validation
+library(randomForest)   # Random Forest
+library(e1071)          # SVM, Naive Bayes
+
+

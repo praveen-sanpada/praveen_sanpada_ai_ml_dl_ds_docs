@@ -1,0 +1,106 @@
+🎯 Step 7: Computer Vision (CV)
+✅ 1) Basic Image Processing – OpenCV Library (IMP)
+OpenCV (Open Source Computer Vision Library) is the most popular and powerful Python library for image and video processing.
+
+🧠 What is OpenCV?
+OpenCV is a computer vision library that allows you to process, transform, filter, and analyze images and videos efficiently.
+
+✅ Real-Life Use Cases of OpenCV
+Domain	Use Case
+📷 Security	Face detection in CCTV footage
+🛠 Manufacturing	Detect product defects using image processing
+🏥 Healthcare	Analyze MRI/X-ray scans
+🤳 Social Media	Image filters (blur, brightness, effects)
+🚗 Automotive	Lane detection for self-driving cars
+
+
+✅ Common Image Processing Tasks (OpenCV)
+Task	Function in OpenCV
+Load image	cv2.imread()
+Display image	cv2.imshow()
+Resize image	cv2.resize()
+Convert color space	cv2.cvtColor()
+Draw shapes/text	cv2.line(), cv2.putText()
+Apply filters	cv2.GaussianBlur(), cv2.Canny()
+Save image	cv2.imwrite()
+
+
+✅ Python Code: Basic Image Processing with OpenCV
+import cv2
+
+# Load an image
+image = cv2.imread("sample.jpg")
+
+# Resize the image
+resized = cv2.resize(image, (400, 400))
+
+# Convert to grayscale
+gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
+
+# Apply Gaussian Blur
+blur = cv2.GaussianBlur(gray, (5, 5), 0)
+
+# Edge detection using Canny
+edges = cv2.Canny(blur, 50, 150)
+
+# Draw a rectangle
+cv2.rectangle(resized, (50, 50), (350, 350), (0, 255, 0), 2)
+
+# Add text
+cv2.putText(resized, "OpenCV", (100, 380), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+
+# Save and display
+cv2.imwrite("processed.jpg", resized)
+
+# Display output (if using local environment)
+# cv2.imshow("Result", resized)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+
+
+✅ Visual Summary of Workflow
+Original Image → Resize → Grayscale → Blur → Edge Detection → Annotate → Save
+
+
+✅ OpenCV File Operations
+Function	Use
+cv2.imread()	Load image file
+cv2.imwrite()	Save processed image
+cv2.VideoCapture()	Capture from webcam or video
+cv2.imshow()	Display image or frame
+
+
+
+✅ Summary: What OpenCV Can Do
+Feature	Description
+🖼 Read & manipulate	Crop, resize, rotate images
+🎯 Detect features	Face, eyes, contours, objects
+🖌 Drawing	Draw lines, circles, text
+🎥 Video support	Capture and process real-time webcam/video
+📦 Integration	Works with DL models (e.g., YOLO, OpenPose)
+
+
+
+✅ Real-World Projects with OpenCV
+Project	Tools Used
+Real-time Face Detection	cv2.CascadeClassifier
+License Plate Recognition	OCR + contour detection
+Document Scanner (from photo)	Perspective transform
+Blur Background (portrait mode)	Face segmentation + masking
+Lane Detection (Self-Driving)	Canny + HoughLines + masking
+
+
+
+✅ Summary Table
+Task	OpenCV Function
+Read image	cv2.imread()
+Resize	cv2.resize()
+Grayscale	cv2.cvtColor(..., cv2.COLOR_BGR2GRAY)
+Blur	cv2.GaussianBlur()
+Detect edges	cv2.Canny()
+Draw shapes/text	cv2.rectangle(), cv2.putText()
+Save image	cv2.imwrite()
+
+
+

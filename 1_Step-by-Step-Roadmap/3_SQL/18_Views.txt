@@ -1,0 +1,11 @@
+Views (IMP for DS)
+
+-- Creating View
+CREATE VIEW HighEarners AS
+SELECT EmployeeID, FirstName, Salary
+FROM Employees
+WHERE Salary > 75000;
+
+-- Selecting from View
+SELECT * FROM HighEarners;
+

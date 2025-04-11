@@ -1,0 +1,9 @@
+4. Data Import & Export (IMP for DS)
+
+# Read CSV
+data <- read.csv("file.csv")
+
+# Write CSV
+write.csv(data, "output.csv")
+
+

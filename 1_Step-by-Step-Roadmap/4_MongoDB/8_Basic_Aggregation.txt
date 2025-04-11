@@ -1,0 +1,15 @@
+Step 4: Aggregation Framework (IMP for Analytics/DS)
+Basic Aggregation
+
+// Grouping by department and calculating average salary
+db.employees.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      avgSalary: { $avg: "$salary" },
+      count: { $sum: 1 }
+    }
+  }
+]);
+
+

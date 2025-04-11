@@ -1,0 +1,48 @@
+Linear Algebra Fundamentals
+Key Terms:
+Vectors
+Matrices
+Eigenvalues
+Eigenvectors
+
+
+1. Vectors (IMP)
+A vector is an ordered collection of numbers representing magnitude and direction.
+
+Example:
+
+import numpy as np
+
+v = np.array([2, 3, 4])
+
+# Magnitude
+magnitude = np.linalg.norm(v)
+print(magnitude)  # Output: 5.385
+
+
+==============================================================
+
+# Importing NumPy
+import numpy as np
+
+# Creating a vector
+vector = np.array([2, 4, 6])
+
+# Vector operations
+vector_sum = vector + np.array([1, 1, 1])    # Addition
+vector_scalar_mult = vector * 3              # Scalar multiplication
+vector_magnitude = np.linalg.norm(vector)    # Magnitude (Length)
+
+# Output results
+print("Vector:", vector)
+print("Vector Sum:", vector_sum)
+print("Vector Scalar Multiplication:", vector_scalar_mult)
+print("Vector Magnitude:", vector_magnitude)
+
+
+Vector: [2 4 6]
+Vector Sum: [3 5 7]
+Vector Scalar Multiplication: [ 6 12 18]
+Vector Magnitude: 7.483314773547883
+
+

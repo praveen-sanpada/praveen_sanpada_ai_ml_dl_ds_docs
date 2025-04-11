@@ -1,0 +1,4 @@
+DISTINCT (Removing Duplicates)
+
+-- Removing duplicate results
+SELECT DISTINCT Department FROM Employees;

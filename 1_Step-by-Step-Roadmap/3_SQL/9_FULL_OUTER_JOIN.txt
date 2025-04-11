@@ -1,0 +1,7 @@
+FULL OUTER JOIN
+Returns all records from both tables.
+
+SELECT Employees.EmployeeID, Employees.FirstName, Departments.DepartmentName
+FROM Employees
+FULL OUTER JOIN Departments
+ON Employees.DepartmentID = Departments.DepartmentID;

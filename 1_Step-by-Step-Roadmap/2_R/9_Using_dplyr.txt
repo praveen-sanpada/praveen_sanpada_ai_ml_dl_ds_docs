@@ -1,0 +1,10 @@
+5. Data Cleaning & Manipulation (IMP for DS/ML)
+Using dplyr (IMP)
+
+library(dplyr)
+
+# Filter & Select
+df %>% filter(score > 85) %>% select(name, score)
+
+# Mutate (creating new column)
+df %>% mutate(status = ifelse(score > 90, "Excellent", "Good"))

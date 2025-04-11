@@ -1,5 +1,0 @@
-Indexes (IMP for Performance)
-
--- Creating an Index for faster queries
-CREATE INDEX idx_salary ON Employees(Salary);
-

@@ -1,0 +1,18 @@
+Step 9: Dealing with Subdocuments & Arrays (Advanced)
+
+// Sample document with subdocuments
+db.employees.insertOne({
+  name: "Alex",
+  skills: [{ name: "Python", level: "Advanced" }, { name: "SQL", level: "Intermediate" }]
+});
+
+// Querying array elements
+db.employees.find({ "skills.name": "Python" });
+
+// Update nested array elements
+db.employees.updateOne(
+  { name: "Alex", "skills.name": "Python" },
+  { $set: { "skills.$.level": "Expert" } }
+);
+
+

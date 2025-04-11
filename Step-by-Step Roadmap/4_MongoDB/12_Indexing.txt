@@ -1,9 +1,0 @@
-Step 6: Indexing (IMP for Performance)
-
-// Create index on salary field
-db.employees.createIndex({ salary: 1 });
-
-// Compound Index (multiple fields)
-db.employees.createIndex({ department: 1, salary: -1 });
-
-

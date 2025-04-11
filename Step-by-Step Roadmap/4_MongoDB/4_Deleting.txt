@@ -1,9 +1,0 @@
-Deleting Documents
-
-// Delete single document
-db.employees.deleteOne({ name: "Mike Johnson" });
-
-// Delete multiple documents
-db.employees.deleteMany({ salary: { $lt: 70000 } });
-
-

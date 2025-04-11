@@ -1,0 +1,9 @@
+9. Model Selection & Evaluation (IMP)
+Train-Test Split (caret)
+
+library(caret)
+
+set.seed(123)
+split <- createDataPartition(df$score, p=0.7, list=FALSE)
+train <- df[split,]
+test <- df[-split,]

@@ -1,0 +1,39 @@
+✅ 2) Unsupervised Learning (IMP)
+Definition:
+In unsupervised learning, the model learns patterns and structure from unlabeled data — there are no predefined outputs.
+
+📌 Goal: Discover hidden structure (e.g., groups, clusters) in data.
+
+
+🔹 Real-World Examples:
+Customer segmentation (marketing)
+Anomaly detection (fraud, faults)
+Market basket analysis (association rules)
+
+
+🔹 Common Algorithms:
+K-Means Clustering
+DBSCAN
+Hierarchical Clustering
+PCA (Dimensionality Reduction)
+Apriori / FP-Growth (Association Rules)
+
+
+✅ Python Code Example (Unsupervised - Clustering):
+
+from sklearn.datasets import load_iris
+from sklearn.cluster import KMeans
+import pandas as pd
+
+# Load data
+data = load_iris()
+X = data.data
+
+# KMeans clustering
+kmeans = KMeans(n_clusters=3, random_state=0)
+clusters = kmeans.fit_predict(X)
+
+# View cluster labels
+df = pd.DataFrame(X, columns=data.feature_names)
+df['Cluster'] = clusters
+print(df.head())

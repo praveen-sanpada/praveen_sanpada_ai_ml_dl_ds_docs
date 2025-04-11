@@ -1,0 +1,14 @@
+GROUP BY & HAVING Clause (Aggregation) (IMP)
+
+-- Counting Employees by Department
+SELECT Department, COUNT(*) AS DeptEmployees
+FROM Employees
+GROUP BY Department;
+
+-- HAVING clause (Filter after Grouping)
+SELECT Department, AVG(Salary) AS AvgDeptSalary
+FROM Employees
+GROUP BY Department
+HAVING AVG(Salary) > 60000;
+
+

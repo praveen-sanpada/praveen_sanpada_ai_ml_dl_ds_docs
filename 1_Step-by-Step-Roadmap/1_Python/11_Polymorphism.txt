@@ -1,0 +1,19 @@
+Polymorphism (IMP)
+
+# Polymorphism Example
+class GPT3:
+    def generate(self):
+        return "Generating text with GPT-3"
+
+class GPT4:
+    def generate(self):
+        return "Generating advanced text with GPT-4"
+
+def generation(model):
+    print(model.generate())
+
+model1 = GPT3()
+model2 = GPT4()
+
+generation(model1)  # Output: Generating text with GPT-3
+generation(model2)  # Output: Generating advanced text with GPT-4

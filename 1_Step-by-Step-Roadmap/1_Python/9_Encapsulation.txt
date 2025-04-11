@@ -1,0 +1,23 @@
+Encapsulation (IMP)
+
+class Student:
+    def __init__(self, name, age):
+        self.__name = name  # Private variable
+        self.__age = age
+
+    # Getter
+    def get_name(self):
+        return self.__name
+
+    # Setter
+    def set_age(self, age):
+        if age > 0:
+            self.__age = age
+    
+    def details(self):
+        return f"{self.__name}, Age: {self.__age}"
+
+student = Student("Alice", 21)
+print(student.details())  # Output: Alice, Age: 21
+student.set_age(22)
+print(student.details())  # Output: Alice, Age: 22

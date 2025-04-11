@@ -1,0 +1,120 @@
+🎯 Deep Learning Frameworks
+✅ 3) PyTorch (IMP)
+
+🔥 What is PyTorch?
+PyTorch is an open-source deep learning framework developed by Facebook AI Research (FAIR).
+It's popular for its flexibility, dynamic computation graphs, and simplicity — especially for research and custom model development.
+
+✅ Why PyTorch is Popular
+Feature	Description
+🔁 Dynamic Computation	Define model behavior at runtime — great for debugging
+🧱 Customization	Build any type of neural network with full Python control
+🎓 Loved by Researchers	Most research papers use PyTorch
+🧠 Pythonic	Intuitive and integrates with NumPy, SciPy, etc.
+⚡ GPU Acceleration	Works with CUDA & optimized for NVIDIA GPUs
+📦 Strong Ecosystem	Tools: TorchVision, TorchText, PyTorch Lightning, etc
+
+✅ Real-Life Use Cases of PyTorch
+Use Case	Description
+📷 Image Classification	CNNs on datasets like CIFAR, ImageNet
+🧾 NLP & Transformers	BERT, GPT, LLMs – most built using PyTorch
+🎧 Audio Analysis	Speaker detection, voice generation
+🧠 Research & Academia	Popular in labs for reproducibility and clarity
+🤖 Reinforcement Learning (RL)	Agents, gym environments, Q-learning
+
+✅ PyTorch Key Components
+Component	Description
+torch.Tensor	Like NumPy arrays, but with GPU acceleration
+autograd	Automatic differentiation (for backprop)
+nn.Module	Build neural networks (your own layers)
+optimizer	Weight update methods (SGD, Adam, etc.)
+loss functions	MSE, CrossEntropy, etc.
+torchvision	Dataset + image utils
+
+✅ Basic PyTorch Neural Network Example
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Load data
+iris = load_iris()
+X, y = iris.data, iris.target
+X = StandardScaler().fit_transform(X)
+
+# Convert to PyTorch tensors
+X = torch.tensor(X, dtype=torch.float32)
+y = torch.tensor(y, dtype=torch.long)
+
+# Train/test split
+X_train, X_test = X[:120], X[120:]
+y_train, y_test = y[:120], y[120:]
+
+# Build model
+class NeuralNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc1 = nn.Linear(4, 16)
+        self.fc2 = nn.Linear(16, 3)
+
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))
+        return self.fc2(x)
+
+model = NeuralNet()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+
+# Train loop
+for epoch in range(100):
+    optimizer.zero_grad()
+    outputs = model(X_train)
+    loss = criterion(outputs, y_train)
+    loss.backward()
+    optimizer.step()
+
+# Test accuracy
+with torch.no_grad():
+    predictions = model(X_test).argmax(dim=1)
+    acc = (predictions == y_test).float().mean()
+    print("Test Accuracy:", acc.item())
+
+
+✅ Model Workflow in PyTorch
+Load & preprocess data
+Create model (nn.Module)
+Define loss function
+Choose optimizer
+Forward pass → compute loss
+Backward pass → compute gradients
+Update weights using optimizer
+
+✅ PyTorch vs TensorFlow/Keras
+Feature	PyTorch	TensorFlow/Keras
+🔁 Execution Mode	Dynamic (eager)	Static (graph mode, optional eager)
+🧱 Model Building	More control, manual	Simpler, less boilerplate
+🎓 Research	Most popular	More used in production
+🧩 Libraries	TorchVision, TorchText, PyG	TF Hub, TF Lite, TF.js
+📦 Deployment	TorchScript, ONNX	TF Lite, TensorFlow Serving
+
+✅ Summary Table
+Topic	PyTorch Feature
+Core Data Type	torch.Tensor
+Model	Subclass nn.Module, define forward()
+Optimizers	torch.optim.Adam, SGD, etc.
+Loss Functions	nn.CrossEntropyLoss, MSELoss, etc.
+Training Style	Manual training loop (but customizable)
+Use Case	Custom models, deep research, transformers
+
+✅ Real Projects Built with PyTorch
+Project	Models Used
+Image classifier on CIFAR-10	CNN with Conv2D, Pooling, ReLU
+Sentiment analysis on tweets	LSTM + Embedding + Dense
+Object detection	Faster R-CNN, YOLO (TorchVision)
+BERT fine-tuning (NLP)	Transformers with Hugging Face
+GAN image generator	Subclassed PyTorch nn.Module
+
+
+

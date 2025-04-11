@@ -1,0 +1,41 @@
+✅ 3) Reinforcement Learning (IMP)
+Definition:
+In reinforcement learning, an agent learns to make decisions by interacting with an environment and receiving rewards or penalties based on actions.
+
+📌 Goal: Maximize long-term reward by learning the best policy.
+
+
+🔹 Real-World Examples:
+Game AI (Chess, Go, Atari games)
+Self-driving cars (navigating safely)
+Stock trading bots (maximizing profit)
+Robotics (learning to walk, grab objects)
+
+
+🔹 Core Components:
+Agent: Learner/decision-maker
+Environment: Where the agent operates
+State: Current situation
+Action: What the agent can do
+Reward: Feedback from the environment
+
+
+✅ Python Code Concept (Reinforcement - Q-Learning Simplified):
+import numpy as np
+
+# Q-table: rows = states, columns = actions
+Q = np.zeros((5, 2))
+
+# Simple example of Q-update (Q-learning formula)
+state = 0
+action = 1
+reward = 10
+next_state = 1
+alpha = 0.1
+gamma = 0.9
+
+Q[state, action] = Q[state, action] + alpha * (reward + gamma * np.max(Q[next_state]) - Q[state, action])
+print("Updated Q-Table:\n", Q)
+
+
+

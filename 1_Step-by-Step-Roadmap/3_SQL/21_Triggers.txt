@@ -1,0 +1,13 @@
+Triggers (IMP)
+
+-- Create Trigger to log employee deletion
+CREATE TRIGGER trg_EmployeeDeleted
+ON Employees
+AFTER DELETE
+AS
+BEGIN
+    INSERT INTO EmployeeLog (EmployeeID, Action, ActionDate)
+    SELECT deleted.EmployeeID, 'Deleted', GETDATE()
+    FROM deleted;
+END;
+

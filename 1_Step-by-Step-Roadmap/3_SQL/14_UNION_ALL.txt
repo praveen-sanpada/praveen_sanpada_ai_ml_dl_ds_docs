@@ -1,0 +1,7 @@
+UNION ALL (Combine all results including duplicates)
+
+SELECT EmployeeID FROM Employees_US
+UNION ALL
+SELECT EmployeeID FROM Employees_UK;
+
+

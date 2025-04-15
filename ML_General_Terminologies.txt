@@ -1,0 +1,108 @@
+1) General Machine Learning Terminologies: 
+=> Supervised Learning: Machine learning where the model is trained on labeled data (input-output pairs).
+=> Unsupervised Learning: A type of machine learning where the model learns from unlabeled data and finds hidden patterns.
+=> Reinforcement Learning: An agent learns by interacting with its environment and receiving feedback in terms of rewards or penalties.
+=> Training Set: Data used to train the model.
+=> Testing Set: Data used to evaluate the performance of the model after training.
+=> Validation Set: Data used to fine-tune the model and help with hyperparameter tuning.
+=> Overfitting: When a model fits too closely to the training data, capturing noise and failing to generalize well to new data.
+=> Underfitting: When a model is too simplistic and cannot capture the underlying patterns of the data.
+=> Cross-Validation: A technique to assess the generalization ability of a model by splitting the data into multiple subsets and testing the model on each.
+=> Bias: The error introduced by approximating a real-world problem with a simplified model.
+=> Variance: The error introduced by the model’s sensitivity to small fluctuations in the training data.
+=> Model Evaluation: The process of evaluating the performance of the trained model using metrics like accuracy, precision, recall, and others.
+
+2) Regression Terminologies (Continuous Data):
+=> Linear Regression: A model predicting a continuous output based on a linear relationship between the input features and the target variable.
+=> Polynomial Regression: A regression model that uses polynomial relationships to capture more complex patterns.
+=> R² (R-squared): A metric that measures the proportion of variance in the target variable that is explained by the model.
+=> Mean Squared Error (MSE): The average squared differences between the predicted and actual values.
+=> Root Mean Squared Error (RMSE): The square root of MSE, providing error magnitude in the same units as the target variable.
+=> Mean Absolute Error (MAE): The average of the absolute differences between predicted and actual values.
+=> Residuals: The differences between the observed and predicted values, used to analyze model errors.
+
+3) Classification Terminologies (Categorical Data):
+=> Logistic Regression: A model used for binary classification tasks, predicting the probability of an event occurring.
+=> Decision Trees: A model that splits the data into different branches based on feature values, leading to a classification decision.
+=> Random Forest: An ensemble model that combines multiple decision trees to improve prediction accuracy.
+=> Support Vector Machines (SVM): A classifier that finds the optimal hyperplane separating the classes in high-dimensional space.
+=> K-Nearest Neighbors (KNN): A non-parametric method that classifies a data point based on the majority class of its K nearest neighbors.
+=> Precision: The proportion of true positive predictions out of all positive predictions made by the model.
+=> Recall: The proportion of actual positive instances correctly identified by the model.
+=> F1-Score: The harmonic mean of precision and recall, useful for balancing both metrics.
+=> Confusion Matrix: A table used to evaluate the performance of a classification algorithm by showing true positives, true negatives, false positives, and false negatives.
+=> ROC Curve: A graphical representation of the trade-off between true positive rate and false positive rate at different thresholds.
+=> AUC (Area Under the Curve): The area under the ROC curve. A higher AUC indicates better model performance.
+
+4) Clustering Terminologies (Unsupervised Learning):
+=> K-Means Clustering: A clustering algorithm that divides data into K clusters by minimizing the sum of squared distances from points to their centroids.
+=> Hierarchical Clustering: A method that builds a hierarchy of clusters by either agglomerating smaller clusters or dividing larger clusters.
+=> DBSCAN (Density-Based Spatial Clustering of Applications with Noise): A density-based clustering algorithm that identifies clusters based on dense regions in the dataset.
+=> Silhouette Score: A metric that measures how similar a point is to its own cluster compared to other clusters.
+=> Davies-Bouldin Index: A metric that evaluates the compactness and separation of clusters, where a lower score indicates better clustering.
+
+5) Exploratory Data Analysis (EDA) Terminologies:
+=> Data Preprocessing: The process of cleaning and transforming raw data before applying machine learning algorithms.
+=> Missing Values: Data entries that are missing for certain features. These can be handled through techniques like imputation or deletion.
+=> Normalization: Rescaling features to a specific range, usually [0, 1], to ensure they contribute equally to the model.
+=> Standardization: Scaling features so they have a mean of 0 and a standard deviation of 1, useful for models that are sensitive to the scale of the data (e.g., SVM, KNN).
+=> Outliers: Data points that deviate significantly from other observations. Outlier detection techniques help identify and handle these extreme values.
+=> Feature Engineering: The process of creating new features from existing ones to improve model performance.
+=> Correlation: A measure of the relationship between two or more variables, indicating how one variable changes with respect to another.
+=> Boxplot: A visualization that displays the distribution of a dataset, including the median, quartiles, and potential outliers.
+=> Histogram: A graphical representation of the frequency distribution of a dataset.
+=> PCA (Principal Component Analysis): A dimensionality reduction technique used to reduce the number of features in a dataset by transforming them into a set of orthogonal components.
+
+6) Feature Engineering:
+=> Feature Creation: Generating new features by combining or transforming existing ones to provide more meaningful input to the model.
+=> Feature Selection: The process of selecting the most relevant features for the model, often using techniques like correlation analysis, Recursive Feature Elimination (RFE), or L1 regularization.
+=> One-Hot Encoding: Converting categorical variables into binary (0 or 1) columns for each category, often used for nominal categorical features.
+=> Label Encoding: Assigning a unique integer to each category in a categorical variable, typically used for ordinal features.
+
+7) Feature Scaling:
+=> Standard Scaler: Standardizes the data by removing the mean and scaling to unit variance, ensuring all features contribute equally to the model.
+=> Min-Max Scaler: Rescales the data to a fixed range, usually [0, 1], which is useful when you need features to have a specific scale.
+=> Robust Scaler: Scales the features using median and interquartile range instead of mean and standard deviation, making it more robust to outliers.
+
+8) Model Selection Terminologies:
+=> Cross-Validation: A technique to assess the generalization ability of a model by splitting the data into multiple subsets (folds), training on some folds and testing on the others.
+=> Grid Search: A method for hyperparameter tuning that evaluates a model across multiple combinations of hyperparameters to find the best configuration.
+=> Random Search: A hyperparameter tuning method that randomly searches over a specified hyperparameter space to find optimal values.
+=> Hyperparameter: A parameter set before training a model that controls the model's training process (e.g., learning rate, number of trees).
+=> Bias-Variance Tradeoff: The balance between bias (error due to overly simplistic models) and variance (error due to models that are too complex). Proper model selection aims to minimize both.
+=> Ensemble Methods: Combine multiple models to improve accuracy. Examples include Bagging (e.g., Random Forest), Boosting (e.g., XGBoost), and Stacking.
+
+9) When to Use Feature Engineering and Scaling:
+=> Feature Engineering:  
+When to Use: When the data is complex or you need to extract meaningful patterns.
+Purpose: To create new features that help the model learn better.
+=> Standard Scaler:  
+When to Use: When the data has varying units or ranges..
+Purpose: To standardize data, especially for algorithms like SVM and KNN.
+=> Min-Max Scaler:  
+When to Use: When you need features to lie within a specific range.
+Purpose: To normalize data for algorithms that require a specific range.
+=> One-Hot Encoding:  
+When to Use: 	For categorical data that has no ordinal relationship.
+Purpose: To convert categorical data into a numerical format.
+=> Label Encoding:  
+When to Use: For ordinal categorical data.
+Purpose: To convert ordinal data into numerical format.
+
+10) Summary:
+=> Machine Learning Basics: Supervised and unsupervised learning paradigms, cross-validation, overfitting, and underfitting.
+=> Regression and Classification: Techniques like linear regression, logistic regression, and decision trees for predicting continuous and categorical outputs.
+=> Clustering: K-Means, DBSCAN, and hierarchical clustering for grouping similar data points.
+=> Feature Engineering and Scaling: Methods for transforming data, such as scaling (standardization, min-max) and creating new features to improve model performance.
+=> Model Selection: Techniques like grid search and cross-validation to select the best model configuration.
+
+
+
+
+
+
+
+
+
+
+

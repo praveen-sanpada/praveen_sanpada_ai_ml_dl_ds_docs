@@ -1,0 +1,49 @@
+
+
+                     ┌────────────────────────────┐
+                     │       User (Web UI)        │
+                     └────────────┬───────────────┘
+                                  ↓
+                        [Flask Chat Form Input]
+                                  ↓
+                   ┌──────── Grammar Correction ────────┐
+                   │ Model: prithivida grammar corrector│
+                   └────────────────────────────────────┘
+                                  ↓
+                  ┌────── Intent Detection Layer ───────┐
+                  │ Model: all-MiniLM-L6-v2 (semantic)  │
+                  └─────────────────────────────────────┘
+                                  ↓
+         ┌────────────────── Retrieval Flow ─────────────┐
+         │ IF intent is known → fetch MongoDB using ID   │
+         │ ELSE → Search FAISS corpus for semantic match │
+         │ ELSE → Generate via Local LLM (DialoGPT, T5)  │
+         └───────────────────────────────────────────────┘
+                                  ↓
+                           Response Formatting
+                                  ↓
+                         Display on Flask Template
+
+
+
+llm_flask_chatbot/
+├── app.py                          # Flask entrypoint
+├── templates/
+│   └── chat.html                   # Frontend
+├── utils/
+│   ├── grammar_corrector.py       # Grammar correction
+│   ├── intent_classifier.py       # Semantic intent detection
+│   ├── mongo_query.py             # Query MongoDB by ID
+│   ├── vector_search.py           # FAISS retrieval
+│   ├── response_engine.py         # Final answer logic
+│   └── llm_fallback.py            # GPT2/DialoGPT generation
+├── config/
+│   ├── intents.json               # Mapped intent types
+│   └── mongo_keys.json            # Map Mongo field names
+├── faiss_index/
+│   ├── index.faiss                # FAISS vector index
+│   └── corpus.json                # Documents used to create index
+├── requirements.txt
+├── README.md
+
+

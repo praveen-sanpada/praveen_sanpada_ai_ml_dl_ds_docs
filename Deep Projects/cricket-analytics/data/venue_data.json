@@ -1,0 +1,13 @@
+{
+    "venue_name": "Wankhede",
+    "first_innings": {
+      "average": 171,
+      "highest_score": 212
+    },
+    "second_innings": {
+      "average": 146,
+      "successful_chases": 2
+    },
+    "chasing_win_rate": 40
+  }
+  

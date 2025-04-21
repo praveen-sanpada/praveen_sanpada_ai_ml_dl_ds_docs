@@ -1,0 +1,19 @@
+{
+    "greeting": "Hello! 👋 How can I help you today?",
+    "farewell": "Goodbye! 👋 Have a wonderful day!",
+    "gratitude": "You're very welcome! 😊",
+    "joke_request": "Why don’t scientists trust atoms? Because they make up everything! 😂",
+    "motivation": "🌟 Believe in yourself. You are stronger than you think.",
+    "first_innings_avg": "The average first innings score at this venue is around 160-180 runs.",
+    "chasing_win_rate": "Teams chasing have won about 60% of the recent matches at this ground.",
+    "pitch_analysis": "The pitch here usually supports spin later in the game and pace up front.",
+    "venue_capacity": "This stadium can accommodate approximately 50,000 spectators.",
+    "venue_weather": "Today the weather is partly cloudy with mild humidity.",
+    "boundary_size": "The boundary dimensions are roughly 70 meters straight and 65 on the square.",
+    "toss_impact": "The team winning the toss often chooses to chase due to dew factor.",
+    "score_trend": "Recent matches have seen first innings scores ranging between 150-180 runs.",
+    "help_request": "I'm an AI chatbot built to answer daily and cricket-based queries. Just ask!",
+    "bot_identity": "I'm a custom-built LLM chatbot using open-source deep learning models like BERT and MiniLM.",
+    "get_current_time": ""
+}
+  

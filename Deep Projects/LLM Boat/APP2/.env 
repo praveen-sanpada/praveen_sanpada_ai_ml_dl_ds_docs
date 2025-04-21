@@ -1,0 +1,3 @@
+MONGO_URI=mongodb://ec2-35-154-176-120.ap-south-1.compute.amazonaws.com:27017
+MONGO_DB=sports_feed_stg
+MONGO_COLLECTION=cf_venues

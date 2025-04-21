@@ -1,0 +1,6 @@
+langchain
+pymongo
+torch
+sentence-transformers
+flask
+pandas

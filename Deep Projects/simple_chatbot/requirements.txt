@@ -1,0 +1,7 @@
+# ===========================
+# requirements.txt
+# ===========================
+streamlit
+transformers
+sentence-transformers
+torch

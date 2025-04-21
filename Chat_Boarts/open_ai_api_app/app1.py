@@ -1,8 +1,6 @@
 import streamlit as st
 import openai
 
-# Set your OpenAI API key
-openai.api_key = "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"  # Replace with your actual key
 
 st.title("📝 Simple Text Generator")
 

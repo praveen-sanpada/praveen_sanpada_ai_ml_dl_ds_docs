@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🖼️ Flask Image Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+
+        .container {
+            max-width: 700px;
+            margin-top: 60px;
+        }
+
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-custom {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .img-preview {
+            max-height: 300px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card p-4">
+            <h2 class="text-center mb-4">🖼️ Flask Image Editor</h2>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label">Upload Image</label>
+                    <input class="form-control" type="file" name="image" required>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Resize Width</label>
+                        <input type="number" name="width" class="form-control" value="300">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Height</label>
+                        <input type="number" name="height" class="form-control" value="300">
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Crop X</label>
+                        <input type="number" name="x" class="form-control" value="0">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Y</label>
+                        <input type="number" name="y" class="form-control" value="0">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">W</label>
+                        <input type="number" name="w" class="form-control" value="100">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">H</label>
+                        <input type="number" name="h" class="form-control" value="100">
+                    </div>
+                </div>
+
+                <hr>
+
+                <button type="submit" name="action" value="grayscale" class="btn btn-dark btn-custom">Convert to
+                    Grayscale</button>
+                <button type="submit" name="action" value="resize" class="btn btn-primary btn-custom">Resize</button>
+                <button type="submit" name="action" value="crop" class="btn btn-warning btn-custom">Crop</button>
+            </form>
+
+            {% if original %}
+            <hr>
+            <h5>🖼️ Original Image:</h5>
+            <img src="{{ url_for('static', filename=original) }}" class="img-fluid img-preview">
+            {% endif %}
+
+            {% if processed %}
+            <h5>✅ Processed Image:</h5>
+            <img src="{{ url_for('static', filename=processed) }}" class="img-fluid img-preview">
+            {% endif %}
+
+            {% if download %}
+            <a href="{{ url_for('download_file', filename=download) }}" class="btn btn-success btn-block">⬇️ Download
+                Image</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

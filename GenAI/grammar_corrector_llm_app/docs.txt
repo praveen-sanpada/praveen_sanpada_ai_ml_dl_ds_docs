@@ -1,0 +1,9 @@
+# 📁 Folder Structure: grammar_corrector_llm_app
+
+# grammar_corrector_llm_app/
+# ├── app.py                         # Streamlit frontend
+# ├── grammar_corrector.py          # Grammar correction logic using LLM (via LangChain)
+# ├── model_loader.py               # Loads and caches the grammar correction model
+# ├── prompts.py                    # Prompt templates for grammar correction
+# ├── requirements.txt              # Python dependencies
+# └── README.md

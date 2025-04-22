@@ -1,0 +1,10 @@
+Put your product text in text_input.txt
+
+Run each Python script in order:
+generate_script.py
+generate_voice.py
+generate_images.py
+assemble_video.py
+Get your final video at: output/ratlami_reel.mp4
+
+Want auto-posting to Instagram or WhatsApp? I can help with that too!

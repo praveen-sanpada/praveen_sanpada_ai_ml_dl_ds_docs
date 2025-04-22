@@ -1,0 +1,18 @@
+{
+    "greeting": ["hi", "hello", "hey", "good morning", "good evening"],
+    "farewell": ["bye", "goodbye", "see you later"],
+    "gratitude": ["thank you", "thanks a lot", "appreciate it"],
+    "get_current_time": ["what's the time", "tell me the current time"],
+    "joke_request": ["tell me a joke", "make me laugh"],
+    "motivation": ["motivate me", "inspire me", "give me a motivational quote"],
+    "first_innings_avg": ["average first innings score", "par score batting first", "good total to defend"],
+    "chasing_win_rate": ["is this a chasing ground", "do teams chase well here", "how often does chasing succeed"],
+    "pitch_analysis": ["is this spin friendly", "what's the pitch like", "is pace bowling effective"],
+    "venue_capacity": ["what is the seating capacity", "how many people fit in this stadium"],
+    "venue_weather": ["what's the weather like", "is it cloudy or sunny at the venue"],
+    "boundary_size": ["what is the boundary length", "boundary dimensions of the ground"],
+    "toss_impact": ["does toss matter", "what happens after winning toss", "is toss important"],
+    "score_trend": ["how has scoring changed", "score trend over last matches", "runs trend in recent games"],
+    "help_request": ["can you help", "how can I use this bot", "what can you do"],
+    "bot_identity": ["what's your name", "who created you", "who are you"]
+}

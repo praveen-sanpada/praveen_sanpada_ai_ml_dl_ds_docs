@@ -1,0 +1,13 @@
+
+
+advanced_llm_chatbot/
+├── app.py
+├── intent_classifier.py
+├── response_generator.py
+├── grammar_corrector.py
+├── logger.py
+|── vectorizer.py
+├── config/
+│   ├── intents.json
+│   └── knowledge_base.json
+├── requirements.txt
